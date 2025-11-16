@@ -1,0 +1,48 @@
+<section class="products" id="productBundles">
+	<div class="container">
+		<h2 class="centered">${productsHeading}</h2>
+		<div class="grid">
+			for index < 3
+			<div class="products-card">
+				<h3>${productEntryHeading${index}}</h3>
+				<div class="products-buy">
+					<ul class="products-buy-price list-style-none">
+						<li class="products-buy-price-sale">${productEntryPrice${index}}</li>
+					</ul>
+					<p>${productsPriceLine}</p>
+					<div class="products-buy-creditcards">
+						<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/credit-card-icons.svg?version=1" alt="">
+					</div>
+					<div class="products-card-cta">
+						<a href="${productEntryUrl${index}}" class="cta cta-buy">
+							Buy now
+							<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none">
+								<g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)">
+								<path d="M1.571 6.934h10M7.571 10.934l4-4-4-4"/>
+								</g>
+								<defs>
+								<clipPath id="a">
+									<path fill="#fff" d="M.5.934h12v12H.5z"/>
+								</clipPath>
+								</defs>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="products-card-options">
+					<ul class="list-style-none">
+						include templates/modules/products/card-options-${index}.tmpl.html
+					</ul>
+				</div>
+			</div>
+			endfor
+		</div>
+	</div>
+</section>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		tippy('[data-tippy-content]');
+	});
+</script>

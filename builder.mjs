@@ -42,6 +42,7 @@ function resolveIncludes(filePath, seen = new Set()) {
 	seen.add(absPath);
 
 	let content = readFile(absPath);
+	content = expandLoops(content);
 
 	const includeRegex = /^(\s*)include\s+(.+)$/gm;
 
@@ -301,7 +302,6 @@ function buildOnce(mode) {
 
 	const indexTplPath = path.join(ROOT, "index.tmpl.html");
 	const baseHtml     = resolveIncludes(indexTplPath);
-	const loopHtml     = expandLoops(baseHtml);
 
 	const css      = compileCss();
 	const jsHeader = concatJsBundle("header");
@@ -312,7 +312,7 @@ function buildOnce(mode) {
 		fs.writeFileSync(cssPath, css, "utf8");
 	}
 
-	let htmlWithAssets = injectAssets(loopHtml, {
+	let htmlWithAssets = injectAssets(baseHtml, {
 		mode,
 		css,
 		jsHeader,

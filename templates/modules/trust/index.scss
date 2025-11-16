@@ -1,0 +1,38 @@
+.trust .grid {
+	gap: 2rem;
+	margin-top: 2rem;
+	@media (min-width: 768px) {
+		margin-top: 4rem;
+	}
+	@media (min-width: 1025px) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+.trust-icon {
+	max-width: 64px;
+}
+
+.trust-card {
+	h5 {
+		position: relative;
+		margin-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		&:after {
+			position: absolute;
+			left: 0;
+			top: 100%;
+			height: 2px;
+			width: 100%;
+			background: var(--gradient-horizontal-primary);  
+			content: "";
+		}
+	}
+	p {
+		font-size: 1rem;
+		line-height: 1.25;
+		@media (min-width: 768px) {
+			font-size: 1.5rem;
+		}
+	}
+}

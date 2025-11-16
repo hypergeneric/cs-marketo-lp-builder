@@ -1,3 +1,7 @@
-* {
-	border: 1px green dotted;
-}
+@import "modules/vars";
+@import "modules/fonts";
+@import "modules/typography";
+@import "modules/globals";
+
+@import "partials/header";
+@import "partials/footer";

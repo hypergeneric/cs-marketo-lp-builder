@@ -1,0 +1,52 @@
+<section class="tabs">
+	<div class="container flex">
+		<div class="tabs-left">
+			<h3>${tabsHeading}</h3>
+			<div class="tabs-copy">
+				for index < 3
+				<div class="tabs-copy-item expanded">
+					<button>${tabEntryHeading${index}}</button>
+					<p>${tabEntryBlurb${index}}</p>
+				</div>
+				endfor
+			</div>
+		</div>
+		<div class="tabs-right">
+			<div class="tabs-images">
+				for index < 3
+				<div class="tabs-image">
+					<img src="${tabEntryImage${index}}" alt="${tabEntryHeading${index}}">
+				</div>
+				endfor
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	const items  = Array.from(document.querySelectorAll('.tabs-copy-item'));
+	const panels = Array.from(document.querySelectorAll('.tabs-images .tabs-image'));
+	const list = document.querySelector('.tabs-copy');
+
+	function setActive(i) {
+		items.forEach((it, idx) => it.classList.toggle('expanded', idx === i));
+		panels.forEach((p, idx) => p.classList.toggle('is-active', idx === i));
+		items.forEach((it, idx) =>
+			it.querySelector('button')?.setAttribute('aria-selected', idx === i ? 'true' : 'false')
+		);
+		panels.forEach((p, idx) => p.toggleAttribute('hidden', idx !== i));
+	}
+
+	list.addEventListener('click', (e) => {
+		const btn = e.target.closest('.tabs-copy-item > button');
+		if (!btn) {
+			return;
+		}
+		const i = items.indexOf(btn.parentElement);
+		if (i > -1) {
+			setActive(i);
+		}
+	});
+
+	const initial = Math.max(0, items.findIndex(it => it.classList.contains('expanded')));
+	setActive(initial);
+</script>

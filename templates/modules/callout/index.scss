@@ -1,0 +1,16 @@
+.callout .callout-wrapper {
+	padding: 2rem;
+	background: url(https://go.crowdstrike.com/rs/281-OBQ-266/images/callout-banner-bg-v2.jpg?version=1) 0 0 / cover no-repeat;
+	border-radius: 2rem;
+	color: var(--white);
+	@media (min-width: 768px) {
+		padding: 3.7rem;
+	}
+	h4 {
+		margin: 0;
+	}
+	p {
+		margin: 2rem 0 0;
+		font-size: 1rem;
+	}
+}

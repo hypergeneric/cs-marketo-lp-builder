@@ -1,0 +1,169 @@
+.products .grid {
+	gap: 20px;
+	margin-top: 36px;
+	@media (min-width: 768px) {
+		gap: 24px;
+		grid-template-columns: 1fr 1fr;
+		margin-top: 72px;
+	}
+	@media (min-width: 1250px) {
+		gap: 32px;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+.products-card {
+	padding: 2.5rem 2rem;
+	background: var(--white);
+	border-radius: 32px;
+	@media (min-width: 1025px) {
+		padding: 3rem 2rem 2rem;
+	}
+	h3 {
+		position: relative;
+		margin-bottom: 2rem;
+		padding-bottom: 2.2rem;
+		font-family: 'CrowdSansMed', sans-serif;
+		font-weight: 500;
+		line-height: 1.25;
+		&:after {
+			position: absolute;
+			left: 0;
+			top: 100%;
+			height: 2px;
+			width: 100%;
+			background: var(--gradient-horizontal-primary);  
+			content: "";
+		}
+		strong {
+			display: block;
+			font-family: "CrowdSansBold", sans-serif;
+			font-weight: 700;
+		}
+	}
+}
+	
+.products-buy {
+	.products-buy-price {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		margin: 0 0 1rem;
+		padding: 0;
+		font-family: 'CrowdSansMed', sans-serif;
+		font-size: 1.5rem;
+		font-weight: 500;
+		@media (min-width: 768px) {
+			font-size: 2rem;
+		}
+	}
+	.pill {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 6px 8px;
+		border: 1px solid transparent;
+		border-radius: 24px;
+		background: 
+			linear-gradient(white, white) padding-box,
+			linear-gradient(90deg, #EC0000 0%, #0024FF 100%) border-box;
+		background-clip: padding-box, border-box;
+		background-origin: border-box;
+		span {
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 1;
+			background: var(--gradient-horizontal-primary);
+			background-clip: text;
+			text-box: trim-both cap alphabetic;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+	p {
+		margin: 0 0 1.15rem;
+		color: var(--grey400);
+		font-family: 'CrowdSansMed';
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.25;
+	}
+}
+	
+.products-buy-price-original {
+	color: var(--grey400);
+	text-decoration: line-through;
+	text-decoration-thickness: 2px;
+}
+	
+.products-buy-price-sale {
+	color: var(--red100);
+	font-family: "CrowdSansBold", sans-serif;
+	font-weight: 700;
+}
+	
+.products-buy-creditcards {
+	margin-bottom: 1.3rem;
+	img {
+		max-width: 175px;
+	}
+}
+	
+.products-card-cta {
+	margin-bottom: 1.5rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid var(--grey300);
+	.cta {
+		width: 100%;
+	}
+}
+	
+.products-card-options {
+	ul {
+		padding-left: 0;
+	}
+	li {
+		position: relative;
+		margin-bottom: 22px;
+		padding-left: 30px;
+		color: var(--grey200);
+		font-size: 1rem;
+		font-weight: 600;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&:before {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			height: 21px;
+			width: 20px;
+			background: url(https://go.crowdstrike.com/rs/281-OBQ-266/images/close-icon.svg?version=1) 0 0 / cover no-repeat;
+			border-radius: 50%;
+			content: "";
+			transform: translateY(-50%);
+		}
+		&:has( > button )::before {
+			background: url(https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-checkmark.svg?version=1) 0 0 / cover no-repeat;
+		}
+		&:has( > button ) button {
+			border-bottom: 1px dotted var(--black);
+		}
+	}
+	button {
+		padding: 0 0 3px;
+		background: none;
+		border: none;
+		color: var(--black);
+		cursor: pointer;
+		font-size: inherit;
+		font-weight: inherit;
+		letter-spacing: 0.75px;
+		text-align: left;
+	}
+	span {
+		display: inline-block;
+		padding: 0 0 3px;
+		border-bottom: 1px dotted white;
+	}
+}

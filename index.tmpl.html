@@ -1,9 +1,17 @@
 <!doctype html>
 <html lang="en">
-	include templates/partials/header.tmpl.html
+	include templates/partials/head.tmpl.html
 	<body>
-		include templates/modules/head.tmpl.html
-		include templates/modules/side-by-side/index.tmpl.html
+		include templates/partials/header.tmpl.html
+		<main class="main">
+			include templates/modules/hero/index.tmpl.html
+			include templates/modules/trust/index.tmpl.html
+			include templates/modules/products/index.tmpl.html
+			include templates/modules/tabs/index.tmpl.html
+			include templates/modules/video/index.tmpl.html
+			include templates/modules/faqs/index.tmpl.html
+			include templates/modules/callout/index.tmpl.html
+		</main>
 	</body>
 	include templates/partials/footer.tmpl.html
 </html>

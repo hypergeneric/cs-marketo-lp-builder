@@ -1,0 +1,104 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--grey100);
+	font-family: 'HaasGrotDisp', sans-serif;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.container {
+	margin: 0 1rem;
+	@media (min-width: 768px) {
+		margin: 0 auto;
+		max-width: 1360px;
+		padding: 0 2rem;
+	}
+	@media (min-width: 1410px) {
+		padding: 0;
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.stack-on-mobile {
+	flex-direction: column;
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
+}
+
+.list-style-none {
+	list-style: none;
+}
+
+img {
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+	padding: 78px 0 48px;
+	@media (min-width: 768px) {
+		gap: 80px;
+		padding-bottom: 80px;
+	}
+	@media (min-width: 1025px) {
+		gap: 96px;
+		padding-bottom: 96px;
+	}
+}
+
+.cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+	padding: 0.80rem 1rem;
+	background: var(--red100);
+	border-radius: 8px;
+	color: var(--white);
+	font-family: 'HaasGrotDispMdm';
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+.centered {
+	text-align: center;
+}
+
+.grid {
+	display: grid;
+}

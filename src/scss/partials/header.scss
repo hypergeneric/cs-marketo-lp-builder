@@ -1,0 +1,18 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 1rem 0;
+	width: 100%;
+	background: var(--white);
+	z-index: 5;
+	.brand {
+		gap: 20px;
+		align-items: center;
+	}
+	.brand-logo {
+		position: relative;
+		padding-right: 1.5rem;
+	}
+
+}
