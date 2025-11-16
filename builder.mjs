@@ -54,17 +54,13 @@ function resolveIncludes(filePath, seen = new Set()) {
 			const rel = path.relative(ROOT, includeAbs);
 			console.error(`[builder] INCLUDE ERROR: ${rel} not found`);
 			const stub = `<div style="border:1px red dotted">INCLUDE ERROR: ${rel} not found</div>`;
-			return indent + stub;
+			return indent + stub; // or just `stub` if you don't care about stub indent either
 		}
 
 		const included = resolveIncludes(includeAbs, seen);
 
-		const indented = included
-			.split("\n")
-			.map((line) => (line.length ? indent + line : line))
-			.join("\n");
-
-		return indented;
+		// no re-indenting, just splice the file in unchanged
+		return included;
 	});
 
 	return content;
@@ -94,50 +90,168 @@ function escapeHtml(str) {
 }
 
 function applyVariables(html, contentMap, mode) {
-	const usedVars  = new Set();
-	const varRegex  = /\$\{([a-zA-Z0-9_-]+)\}/g;
+	const varMeta  = {};
+	const varRegex = /\$\{([a-zA-Z0-9_-]+)(\|[a-zA-Z0-9_-]+)?\}/g;
 
-	const processed = html.replace(varRegex, (match, varName) => {
-		usedVars.add(varName);
+	function registerVar(varName, modifierRaw) {
+		const modifier = (modifierRaw || "").replace(/^\|/, "").toLowerCase();
 
-		if (mode === "dev") {
-			if (Object.prototype.hasOwnProperty.call(contentMap, varName)) {
-				return String(contentMap[varName]);
-			}
+		let type      = "string"; // string | number | boolean | color | img
+		let allowHTML = false;
 
-			return `[${varName}]`;
+		switch (modifier) {
+			case "html":
+				allowHTML = true;          // mktoString + allowHTML="true"
+				break;
+			case "number":
+				type = "number";           // mktoNumber
+				break;
+			case "boolean":
+				type = "boolean";          // mktoBoolean
+				break;
+			case "color":
+				type = "color";            // mktoColor
+				break;
+			case "image":
+				type = "img";              // mktoImg
+				break;
+			case "attr":
+				// attribute context, but still a string variable
+				type = "string";
+				break;
+			case "":
+				// default string
+				break;
+			default:
+				console.warn(
+					`[builder] Unknown modifier "${modifier}" for variable "${varName}", treating as string`
+				);
 		}
 
-		return "${" + varName + "}";
+		const existing = varMeta[varName];
+
+		if (!existing) {
+			varMeta[varName] = { type, allowHTML };
+		} else {
+			// Merge type / flags; prefer the first non-string type
+			if (existing.type !== type && type !== "string") {
+				console.warn(
+					`[builder] Conflicting Marketo types for variable "${varName}" (${existing.type} vs ${type}), keeping "${existing.type}"`
+				);
+			}
+
+			if (allowHTML) {
+				existing.allowHTML = true;
+			}
+		}
+
+		return modifier;
+	}
+
+	const processed = html.replace(varRegex, (match, varName, modifierRaw) => {
+		const modifier = registerVar(varName, modifierRaw);
+
+		if (mode === "build") {
+			// In build mode, leave the Marketo variable syntax intact
+			// e.g. ${heroHeading}, ${heroHeading|html}, ${foo|attr}
+			return match;
+		}
+
+		// Dev mode: substitute preview values from YAML
+		if (Object.prototype.hasOwnProperty.call(contentMap, varName)) {
+			const rawVal = String(contentMap[varName]);
+
+			if (modifier === "attr") {
+				// Attribute-safe escaping for things like data-* and href="..."
+				return escapeHtml(rawVal);
+			}
+
+			// Default and |html etc. just get the raw YAML value
+			// (assume author uses |html when they *want* HTML in the output)
+			return rawVal;
+		}
+
+		// Missing content: show a visual placeholder
+		return `[${varName}]`;
 	});
 
 	return {
 		html: processed,
-		usedVars: Array.from(usedVars)
+		usedVars: varMeta       // { [varName]: { type, allowHTML } }
 	};
 }
 
 function mktoNameFromId(id) {
-	return id
-		.replace(/[-_]+/g, " ")
-		.replace(/\b\w/g, (c) => c.toUpperCase());
+	const spaced = id
+		.replace(/[-_]+/g, " ")               // hero_heading -> "hero heading"
+		.replace(/([a-z0-9])([A-Z])/g, "$1 $2"); // heroHeading -> "hero Heading"
+
+	return spaced
+		.replace(/\s+/g, " ")
+		.trim()
+		.replace(/\b\w/g, (c) => c.toUpperCase()); // "hero heading" -> "Hero Heading"
 }
 
-function generateMktoMetaTags(vars, contentMap) {
-	if (!vars.length) {
+function generateMktoMetaTags(varsMeta, contentMap) {
+	if (!varsMeta || !Object.keys(varsMeta).length) {
 		return "";
 	}
 
 	const lines = [];
 
-	vars.forEach((varName) => {
-		const defaultVal = contentMap[varName] || "";
-		const mktoName   = mktoNameFromId(varName);
+	for (const [varName, info] of Object.entries(varsMeta)) {
+		const type      = info.type || "string";
+		const allowHTML = !!info.allowHTML;
 
-		const line = `<meta class="mktoString" default="${escapeHtml(defaultVal)}" id="${varName}" mktomodulescope="false" mktoname="${escapeHtml(mktoName)}" />`;
+		let cls;
+		switch (type) {
+			case "number":
+				cls = "mktoNumber";
+				break;
+			case "boolean":
+				cls = "mktoBoolean";
+				break;
+			case "color":
+				cls = "mktoColor";
+				break;
+			case "img":
+				cls = "mktoImg";
+				break;
+			default:
+				cls = "mktoString";
+				break;
+		}
 
+		const rawDefault = contentMap[varName] != null
+			? String(contentMap[varName])
+			: "";
+
+		// Escape for attribute context and normalize whitespace
+		let defaultAttr = escapeHtml(rawDefault)
+			.replace(/\r\n|\r|\n/g, " ")   // remove newlines
+			.replace(/\s\s+/g, " ")        // collapse runs of whitespace
+			.trim();
+
+		const mktoName = mktoNameFromId(varName);
+
+		const attrs = [
+			`class="${cls}"`,
+			`id="${varName}"`,
+			`mktoName="${escapeHtml(mktoName)}"`
+		];
+
+		// For string variables, enable HTML if any usage requested it
+		if (allowHTML && cls === "mktoString") {
+			attrs.push('allowHTML="true"');
+		}
+
+		if (defaultAttr !== "") {
+			attrs.push(`default="${defaultAttr}"`);
+		}
+
+		const line = `<meta ${attrs.join(" ")} />`;
 		lines.push(line);
-	});
+	}
 
 	return lines.join("\n");
 }
@@ -147,17 +261,28 @@ function injectMktoMeta(html, metaBlock) {
 		return html;
 	}
 
-	const doctypeRegex = /<!doctype html[^>]*>/i;
-	const match        = html.match(doctypeRegex);
+	// Preferred: insert immediately after <head ...>
+	const headRegex = /<head[^>]*>/i;
+	const headMatch = html.match(headRegex);
 
-	if (!match) {
-		return metaBlock + "\n" + html;
+	if (headMatch) {
+		const headTag = headMatch[0];
+		const idx     = html.indexOf(headTag) + headTag.length;
+		return html.slice(0, idx) + "\n" + metaBlock + "\n" + html.slice(idx);
 	}
 
-	const doctype = match[0];
-	const idx     = html.indexOf(doctype) + doctype.length;
+	// Fallback: after <!doctype ...>
+	const doctypeRegex = /<!doctype html[^>]*>/i;
+	const docMatch     = html.match(doctypeRegex);
 
-	return html.slice(0, idx) + "\n" + metaBlock + "\n" + html.slice(idx);
+	if (docMatch) {
+		const doctype = docMatch[0];
+		const idx     = html.indexOf(doctype) + doctype.length;
+		return html.slice(0, idx) + "\n" + metaBlock + "\n" + html.slice(idx);
+	}
+
+	// Last resort: prepend to the document
+	return metaBlock + "\n" + html;
 }
 
 function findTemplateScssEntries() {
@@ -188,12 +313,12 @@ function findTemplateScssEntries() {
 	return entries;
 }
 
-function compileCss() {
+function compileCss(style = "expanded") {
 	const mainEntry = path.join(SRC_DIR, "scss", "index.scss");
 	let cssChunks   = [];
 
 	if (fs.existsSync(mainEntry)) {
-		const result = sass.compile(mainEntry, { style: "expanded" });
+		const result = sass.compile(mainEntry, { style });
 		cssChunks.push(result.css);
 	}
 
@@ -201,7 +326,7 @@ function compileCss() {
 	const templateEntries = findTemplateScssEntries();
 
 	templateEntries.forEach((entryPath) => {
-		const result = sass.compile(entryPath, { style: "expanded" });
+		const result = sass.compile(entryPath, { style });
 		cssChunks.push(result.css);
 	});
 
@@ -244,11 +369,16 @@ function injectAssets(html, assets) {
 			'<link rel="stylesheet" href="styles.css">'
 		);
 	} else {
-		// Build: inline the compiled CSS
+		// Build: inline the compiled CSS or remove placeholder if none
 		if (assets.css) {
 			out = out.replace(
 				/<style[^>]*data-build="css-index"[^>]*><\/style>/,
-				`<style>\n${assets.css}\n</style>`
+				"<style>\n" + assets.css + "\n<\/style>"
+			);
+		} else {
+			out = out.replace(
+				/<style[^>]*data-build="css-index"[^>]*><\/style>/,
+				""
 			);
 		}
 	}
@@ -256,14 +386,24 @@ function injectAssets(html, assets) {
 	if (assets.jsHeader) {
 		out = out.replace(
 			/<script[^>]*data-build="js-header"[^>]*><\/script>/,
-			`<script>\n${assets.jsHeader}\n</script>`
+			"<script>\n" + assets.jsHeader + "\n<\/script>"
+		);
+	} else {
+		out = out.replace(
+			/<script[^>]*data-build="js-header"[^>]*><\/script>/,
+			""
 		);
 	}
 
 	if (assets.jsFooter) {
 		out = out.replace(
 			/<script[^>]*data-build="js-footer"[^>]*><\/script>/,
-			`<script>\n${assets.jsFooter}\n</script>`
+			"<script>\n" + assets.jsFooter + "\n<\/script>"
+		);
+	} else {
+		out = out.replace(
+			/<script[^>]*data-build="js-footer"[^>]*><\/script>/,
+			""
 		);
 	}
 
@@ -303,7 +443,7 @@ function buildOnce(mode) {
 	const indexTplPath = path.join(ROOT, "index.tmpl.html");
 	const baseHtml     = resolveIncludes(indexTplPath);
 
-	const css      = compileCss();
+	const css      = compileCss(mode === "build" ? "compressed" : "expanded");
 	const jsHeader = concatJsBundle("header");
 	const jsFooter = concatJsBundle("footer");
 
@@ -319,8 +459,7 @@ function buildOnce(mode) {
 		jsFooter
 	});
 
-
-	const contentMap   = loadContentYaml();
+	const contentMap = loadContentYaml();
 	const { html: htmlVars, usedVars } = applyVariables(htmlWithAssets, contentMap, mode);
 
 	let finalHtml = htmlVars;
@@ -341,7 +480,7 @@ function buildOnce(mode) {
 
 function buildCssOnly() {
 	ensureDistDir();
-	const css     = compileCss();
+	const css     = compileCss("expanded");
 	const cssPath = path.join(DIST_DIR, "styles.css");
 	fs.writeFileSync(cssPath, css, "utf8");
 	console.log("[builder] css  -> dist/styles.css");
