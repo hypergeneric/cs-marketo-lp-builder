@@ -1,0 +1,14 @@
+name: marketo-landing-builder
+recipe: lamp
+
+config:
+  webroot: dist
+  php: "8.2"
+  xdebug: false
+
+services:
+  appserver:
+    overrides:
+      environment:
+        # Optional: set docroot explicitly if needed
+        APACHE_DOCUMENT_ROOT: /app/dist

@@ -1,0 +1,10 @@
+# content/content.yaml
+sideBySideHeading: "My Heading Title!"
+sideBySideBody: |
+  <p>
+    Some <strong>body copy</strong> for the side by side section.
+  </p>
+sideBySideBodyEntryHeading0: "First entry"
+sideBySideBodyEntryHeading1: "Second entry"
+sideBySideBodyEntryHeading2: "Third entry"
+pageTitle: "My Marketo Landing Page"
