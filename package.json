@@ -2,9 +2,10 @@
 	"name": "marketo-landing-builder",
 	"type": "module",
 	"scripts": {
-		"dev": "node builder.mjs dev",
+		"build": "node builder.mjs",
+		"watch": "node builder.mjs watch",
 		"serve": "browser-sync start --server dist --files \"dist/**/*\" --no-open",
-		"build": "node builder.mjs build"
+		"dev": "npm-run-all --parallel watch serve"
 	},
 	"dependencies": {
 		"chokidar": "^4.0.0",
@@ -12,6 +13,7 @@
 		"yaml": "^2.5.0"
 	},
 	"devDependencies": {
-		"browser-sync": "^3.0.4"
+		"browser-sync": "^3.0.4",
+		"npm-run-all": "^4.1.5"
 	}
 }

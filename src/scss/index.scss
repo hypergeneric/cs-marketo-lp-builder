@@ -1,7 +1,7 @@
-@import "modules/vars";
-@import "modules/fonts";
-@import "modules/typography";
-@import "modules/globals";
+@use "modules/vars";
+@use "modules/fonts";
+@use "modules/typography";
+@use "modules/globals";
 
-@import "partials/header";
-@import "partials/footer";
+@use "partials/header";
+@use "partials/footer";

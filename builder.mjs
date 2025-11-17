@@ -15,11 +15,20 @@ const SRC_DIR    = path.join(ROOT, "src");
 const TPL_DIR    = path.join(ROOT, "templates");
 const CONTENT_DIR= path.join(ROOT, "content");
 const DIST_DIR   = path.join(ROOT, "dist");
+const MARKETO_DIR = path.join(ROOT, "final");
+
+function ensureDir(dir) {
+	if (!fs.existsSync(dir)) {
+		fs.mkdirSync(dir, { recursive: true });
+	}
+}
 
 function ensureDistDir() {
-	if (!fs.existsSync(DIST_DIR)) {
-		fs.mkdirSync(DIST_DIR, { recursive: true });
-	}
+	ensureDir(DIST_DIR);
+}
+
+function ensureMarketoDir() {
+	ensureDir(MARKETO_DIR);
 }
 
 function readFile(filePath) {
@@ -437,61 +446,85 @@ function expandLoops(html) {
 	return output;
 }
 
-function buildOnce(mode) {
+function buildStyleSheet() {
+	ensureDistDir();
+
+	const css     = compileCss("compressed");
+	const cssPath = path.join(DIST_DIR, "styles.css");
+	fs.writeFileSync(cssPath, css, "utf8");
+
+	console.log("[builder] css   -> dist/styles.css");
+}
+
+function buildIndexFile() {
 	ensureDistDir();
 
 	const indexTplPath = path.join(ROOT, "index.tmpl.html");
 	const baseHtml     = resolveIncludes(indexTplPath);
 
-	const css      = compileCss(mode === "build" ? "compressed" : "expanded");
 	const jsHeader = concatJsBundle("header");
 	const jsFooter = concatJsBundle("footer");
 
-	if (mode === "dev") {
-		const cssPath = path.join(DIST_DIR, "styles.css");
-		fs.writeFileSync(cssPath, css, "utf8");
-	}
+	const devHtmlWithAssets = injectAssets(baseHtml, {
+		mode: "dev",
+		css: "",
+		jsHeader,
+		jsFooter
+	});
 
-	let htmlWithAssets = injectAssets(baseHtml, {
-		mode,
+	const contentMap = loadContentYaml();
+	const { html: htmlDevVars } = applyVariables(devHtmlWithAssets, contentMap, "dev");
+
+	const devFile = path.join(DIST_DIR, "index.html");
+	fs.writeFileSync(devFile, htmlDevVars, "utf8");
+
+	console.log("[builder] dev   -> dist/index.html");
+}
+
+function buildMarketoFile() {
+	ensureMarketoDir();
+
+	const indexTplPath = path.join(ROOT, "index.tmpl.html");
+	const baseHtml     = resolveIncludes(indexTplPath);
+
+	const css      = compileCss("compressed");
+	const jsHeader = concatJsBundle("header");
+	const jsFooter = concatJsBundle("footer");
+
+	const mktoHtmlWithAssets = injectAssets(baseHtml, {
+		mode: "build",
 		css,
 		jsHeader,
 		jsFooter
 	});
 
 	const contentMap = loadContentYaml();
-	const { html: htmlVars, usedVars } = applyVariables(htmlWithAssets, contentMap, mode);
+	const { html: htmlBuildVars, usedVars } = applyVariables(
+		mktoHtmlWithAssets,
+		contentMap,
+		"build"
+	);
 
-	let finalHtml = htmlVars;
+	let marketoHtml = htmlBuildVars;
 
-	if (mode === "build") {
-		const metaBlock = generateMktoMetaTags(usedVars, contentMap);
-		finalHtml       = injectMktoMeta(finalHtml, metaBlock);
-	}
+	const metaBlock = generateMktoMetaTags(usedVars, contentMap);
+	marketoHtml     = injectMktoMeta(marketoHtml, metaBlock);
 
-	const outFile = mode === "build"
-		? path.join(DIST_DIR, "index.marketo.html")
-		: path.join(DIST_DIR, "index.html");
+	const marketoFile = path.join(MARKETO_DIR, "index.marketo.html");
+	fs.writeFileSync(marketoFile, marketoHtml, "utf8");
 
-	fs.writeFileSync(outFile, finalHtml, "utf8");
-
-	console.log(`[builder] ${mode} -> ${path.relative(ROOT, outFile)}`);
-}
-
-function buildCssOnly() {
-	ensureDistDir();
-	const css     = compileCss("expanded");
-	const cssPath = path.join(DIST_DIR, "styles.css");
-	fs.writeFileSync(cssPath, css, "utf8");
-	console.log("[builder] css  -> dist/styles.css");
+	console.log("[builder] mkto  -> " + path.relative(ROOT, marketoFile));
 }
 
 function run() {
-	const mode = process.argv[2] || "dev";
+	const arg   = process.argv[2] || "once";
+	const watch = arg === "watch";
 
-	if (mode === "dev") {
+	if (watch) {
 		// initial full build
-		buildOnce("dev");
+		buildStyleSheet();
+		buildIndexFile();
+		buildMarketoFile();
 
 		const watcher = chokidar.watch(
 			[
@@ -516,16 +549,20 @@ function run() {
 			const ext = path.extname(filePath).toLowerCase();
 
 			if (ext === ".scss") {
-				buildCssOnly();      // only CSS
+				// Stylesheet + Marketo (inline CSS)
+				buildStyleSheet();
+				buildMarketoFile();
 			} else {
-				buildOnce("dev");    // full HTML + assets
+				// Template / JS / content changes
+				buildIndexFile();
+				buildMarketoFile();
 			}
 		});
-	} else if (mode === "build") {
-		buildOnce("build");
 	} else {
-		console.error("Unknown mode. Use: dev | build");
-		process.exit(1);
+		// one-off full build
+		buildStyleSheet();
+		buildIndexFile();
+		buildMarketoFile();
 	}
 }
 
