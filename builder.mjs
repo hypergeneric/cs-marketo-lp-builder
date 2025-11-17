@@ -161,9 +161,9 @@ function applyVariables(html, contentMap, mode) {
 		const modifier = registerVar(varName, modifierRaw);
 
 		if (mode === "build") {
-			// In build mode, leave the Marketo variable syntax intact
-			// e.g. ${heroHeading}, ${heroHeading|html}, ${foo|attr}
-			return match;
+			// In Marketo output we want plain ${varName} (no modifier),
+			// modifiers only inform the meta tag configuration.
+			return "${" + varName + "}";
 		}
 
 		// Dev mode: substitute preview values from YAML
