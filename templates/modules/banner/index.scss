@@ -23,10 +23,6 @@
 		}
 	}
 	h2 {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 1rem;
 		padding-right: 100px;
 		background: linear-gradient(89.99deg, rgba(0, 0, 0, 0.2) -11.86%, rgba(167, 167, 167, 0.2) 46.45%, rgba(0, 0, 0, 0.2) 100%), #000000;
 		clip-path: polygon( calc( 100% - 64px ) 0, calc( 100% - 2px ) 50%, calc( 100% - 64px ) 100%, 0 100%, 0 0);

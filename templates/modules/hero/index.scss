@@ -1,25 +1,8 @@
 @use "../../../src/scss/modules/vars" as *;
 
 .hero {
-	--background-image: none;
-	--background-image-tablet: var( --background-image );
-	--background-image-mobile: var( --background-image );
-	background-image: var( --background-image );
 	background-color: #000;
-	color: var( --white );
-	@media ( max-width: $tablet_wide ) {
-		background-image: var( --background-image-tablet );
-	}
-	@media ( max-width: $mobile_wide ) {
-		background-image: var( --background-image-mobile );
-	}
 	.context {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
 		max-width: 900px;
-		@media ( max-width: $tablet_wide ) {
-			gap: 1rem;
-		}
 	}
 }

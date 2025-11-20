@@ -2,8 +2,6 @@
 
 .s-curve {
 	.entries {
-		display: flex;
-		flex-direction: column;
 		gap: 6rem;
 		@media ( max-width: $tablet_wide ) {
 			gap: 5rem;
@@ -13,37 +11,25 @@
 		}
 	}
 	.entry {
-		display: flex;
-		flex-direction: row;
-		gap: 4rem;
 		align-items: center;
+		@media ( max-width: $mobile_wide ) {
+			flex-direction: column;
+		}
 		&:nth-child(odd) {
 			flex-direction: row-reverse;
 			@media ( max-width: $mobile_wide ) {
 				flex-direction: column;
 			}
 		}
-		@media ( max-width: $tablet_wide ) {
-			gap: 2rem;
-		}
-		@media ( max-width: $mobile_wide ) {
-			flex-direction: column;
-		}
 	}
 	.graphic {
 		width: calc( 60% - 2rem );
-		@media ( max-width: $tablet_wide ) {
-			width: calc( 50% - 1rem );
-		}
-		@media ( max-width: $mobile_wide ) {
-			width: 100%;
-		}
 	}
 	.context {
 		width: calc( 40% - 2rem );
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
+	}
+	.graphic ,
+	.context {
 		@media ( max-width: $tablet_wide ) {
 			width: calc( 50% - 1rem );
 		}

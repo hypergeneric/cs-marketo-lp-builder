@@ -1,15 +1,15 @@
 <section class="whats-new">
-	<div class="container">
-		<div class="context">
+	<div class="container flex-v gap-4">
+		<div class="heading-center flex-v gap-2">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${whatsNewHeading|html}</h2>
 			<div class="crowdsans haasgrotdisp s_24 lh_125">${whatsNewBlurb|html}</div>
 		</div>
-		<div class="cards">
+		<div class="cards flex gap-2">
 			for index < 3
-				<div class="card has-radius">
-					<div class="inner">
+				<div class="card flex-v gap-2 thirds has-radius">
+					<div class="inner flex-v gap-15">
 						<div><img src="${whatsNewEntryIcon${index}}|attr" alt="" /></div>
-						<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">${whatsNewEntryHeading${index}}</h3>
+						<h3 class="has-gradient-line crowdsans crowdsansbold w_700 s_24 lh_125">${whatsNewEntryHeading${index}}</h3>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">${whatsNewEntryBlurb${index}}</div>
 					</div>
 					<div class="cta-wrap">

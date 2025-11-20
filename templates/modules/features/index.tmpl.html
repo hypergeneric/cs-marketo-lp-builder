@@ -1,13 +1,13 @@
 <section class="features spacing-top-none spacing-bottom-none">
-	<div class="container">
-		<div class="context">
+	<div class="container flex-v gap-4">
+		<div class="heading-center flex-v gap-2">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${featuresHeading|html}</h2>
 		</div>
-		<div class="entries">
+		<div class="entries flex gap-2">
 			for index < 3
-				<div class="entry">
+				<div class="entry flex-v gap-2 thirds">
 					<div><img src="${featuresEntryIcon${index}}|attr" alt="" /></div>
-					<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">${featuresEntryHeading${index}}</h3>
+					<h3 class="has-gradient-line crowdsans crowdsansbold w_700 s_24 lh_125">${featuresEntryHeading${index}}</h3>
 					<div class="crowdsans haasgrotdisp s_24 lh_125">${featuresEntryBlurb${index}|html}</div>
 				</div>
 			endfor
