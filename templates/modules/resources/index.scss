@@ -49,12 +49,48 @@
 			color: var( --red100 );
 			margin-bottom: .5rem;
 		}
-		.context ,
+		.context,
 		.cta-wrap {
 			padding: 2rem;
 		}
 		.cta-wrap {
 			padding-top: 0;
+		}
+	}
+	.cta-wrap {
+		text-align: center;
+	}
+
+	/* COLLAPSED STATE
+	/* Default: desktop (3 across) → show first 3 cards */
+	&.is-collapsed {
+		.card {
+			display: none;
+		}
+		.card:nth-child(-n + 3) {
+			display: flex;
+		}
+	}
+	/* Tablet: 2 across → show first 4 cards */
+	@media ( max-width: $tablet_wide ) {
+		&.is-collapsed {
+			.card {
+				display: none;
+			}
+			.card:nth-child(-n + 4) {
+				display: flex;
+			}
+		}
+	}
+	/* Mobile: 1 across → show first 3 cards */
+	@media ( max-width: $mobile_wide ) {
+		&.is-collapsed {
+			.card {
+				display: none;
+			}
+			.card:nth-child(-n + 3) {
+				display: flex;
+			}
 		}
 	}
 }

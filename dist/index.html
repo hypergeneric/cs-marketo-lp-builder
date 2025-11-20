@@ -43,7 +43,7 @@
 				<h2 class="crowdsans crowdsansbold w_700 s_24 lh_125">CrowdStrike named AWS 2025 global security partner & global marketplace partner of the year</h2>
 			</div>
 			<div class="cta-wrap">
-				<a href="" class="cta">Read press release</a>
+				<a href="" class="cta outline">Read press release</a>
 			</div>
 		</div>
 	</div>
@@ -190,7 +190,7 @@
 			<div class="graphic" style="background-image: url( https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1 );"></div>
 		</div>
 	</div>
-</section><section class="resources spacing-top-none">
+</section><section class="resources spacing-top-none is-collapsed">
 	<div class="container">
 		<div class="heading">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">Featured Resources</h2>
@@ -232,9 +232,57 @@
 						<a href="" class="cta">Download</a>
 					</div>
 				</div>
+				<div class="card has-radius">
+					<div class="inner">
+						<img src="[resourcesEntryImage3]|attr" alt="" />
+						<div class="context">
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">[resourcesEntryEyebrow3]</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">[resourcesEntryTitle3]</h3>
+						</div>
+					</div>
+					<div class="cta-wrap">
+						<a href="[resourcesEntryCtaURL3]" class="cta">[resourcesEntryCtaText3]</a>
+					</div>
+				</div>
+				<div class="card has-radius">
+					<div class="inner">
+						<img src="[resourcesEntryImage4]|attr" alt="" />
+						<div class="context">
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">[resourcesEntryEyebrow4]</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">[resourcesEntryTitle4]</h3>
+						</div>
+					</div>
+					<div class="cta-wrap">
+						<a href="[resourcesEntryCtaURL4]" class="cta">[resourcesEntryCtaText4]</a>
+					</div>
+				</div>
+				<div class="card has-radius">
+					<div class="inner">
+						<img src="[resourcesEntryImage5]|attr" alt="" />
+						<div class="context">
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">[resourcesEntryEyebrow5]</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">[resourcesEntryTitle5]</h3>
+						</div>
+					</div>
+					<div class="cta-wrap">
+						<a href="[resourcesEntryCtaURL5]" class="cta">[resourcesEntryCtaText5]</a>
+					</div>
+				</div>
+		</div>
+		<div class="cta-wrap">
+			<a href="#" class="cta transparent black outline js-resources-toggle">View More</a>
 		</div>
 	</div>
-</section><section class="faqs spacing-top-none spacing-bottom-none">
+</section>
+<script>
+	var section = document.querySelector('.resources');
+	var toggle  = section.querySelector('.js-resources-toggle');
+	toggle.addEventListener('click', function (e) {
+		e.preventDefault();
+		var collapsed = section.classList.toggle('is-collapsed');
+		toggle.textContent = collapsed ? 'View More' : 'View Less';
+	});
+</script><section class="faqs spacing-top-none spacing-bottom-none">
 	<div class="container">
 		<div class="heading">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">FAQs</h2>

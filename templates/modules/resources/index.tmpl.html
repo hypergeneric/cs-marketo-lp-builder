@@ -1,10 +1,10 @@
-<section class="resources spacing-top-none">
+<section class="resources spacing-top-none is-collapsed">
 	<div class="container">
 		<div class="heading">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${resourcesHeading|html}</h2>
 		</div>
 		<div class="cards">
-			for index < 3
+			for index < 6
 				<div class="card has-radius">
 					<div class="inner">
 						<img src="${resourcesEntryImage${index}}|attr" alt="" />
@@ -19,5 +19,17 @@
 				</div>
 			endfor
 		</div>
+		<div class="cta-wrap">
+			<a href="#" class="cta transparent black outline js-resources-toggle">View More</a>
+		</div>
 	</div>
 </section>
+<script>
+	var section = document.querySelector('.resources');
+	var toggle  = section.querySelector('.js-resources-toggle');
+	toggle.addEventListener('click', function (e) {
+		e.preventDefault();
+		var collapsed = section.classList.toggle('is-collapsed');
+		toggle.textContent = collapsed ? 'View More' : 'View Less';
+	});
+</script>
