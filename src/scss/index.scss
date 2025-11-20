@@ -1,5 +1,7 @@
-@use "modules/normalize";
 @use "modules/vars" as *;
+
+@use "modules/root";
+@use "modules/normalize";
 @use "modules/fonts";
 @use "modules/typography";
 @use "modules/globals";
