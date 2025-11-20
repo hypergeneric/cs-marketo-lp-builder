@@ -1,109 +1,25 @@
-/* Hero Styles */
+@use "../../../src/scss/modules/vars" as *;
+
 .hero {
-	margin-top: 0;
-	background: url(https://go.crowdstrike.com/rs/281-OBQ-266/images/cloud-hero-bg.jpg?version=1) center center / cover no-repeat;
-}
-
-.hero-container {
-	padding: 40px 0;
-	@media (min-width: 768px) {
-		padding: 88px 0;
+	--background-image: none;
+	--background-image-tablet: var( --background-image );
+	--background-image-mobile: var( --background-image );
+	background-image: var( --background-image );
+	background-color: #000;
+	color: var( --white );
+	@media ( max-width: $tablet_wide ) {
+		background-image: var( --background-image-tablet );
 	}
-}
-
-.hero-copy {
-	margin: 0 auto;
-	max-width: 830px;
-}
-
-.hero-reviews {
-	display: inline-block;
-	gap: 16px;
-	padding: 0.75rem 1.5rem;
-	background: var(--black);
-	border: 1px solid #363535;
-	border-radius: 56px;
-	ul {
+	@media ( max-width: $mobile_wide ) {
+		background-image: var( --background-image-mobile );
+	}
+	.context {
 		display: flex;
-		align-items: center;
-		gap: 16px;
-		justify-content: center;
-		margin: 0;
-		padding: 0;
-		color: var(--white);
-	}
-}
-
-.hero-title {
-	color: var(--white);
-}
-
-.hero-subtitle {
-	color: var(--white);
-	font-size: 1.5rem;
-	line-height: 1.25;
-	text-wrap: balance;
-	@media (min-width: 768px) {
-		font-size: 1.25rem;
-	}
-}
-
-/* Logo Styles */
-
-.logos {
-	padding: 32px 0 10px;
-	background: var(--grey100);
-	.container {
-		display: flex;
-		align-items: center;
 		flex-direction: column;
-		@media (min-width: 1200px) {
-			flex-direction: row;
-			gap: clamp(16px, 4vw, 48px);
+		gap: 2rem;
+		max-width: 900px;
+		@media ( max-width: $tablet_wide ) {
+			gap: 1rem;
 		}
-	}
-}
-
-.logos-label {
-	margin: 0;
-	font-size: 1.5rem;
-	text-align: center;
-	white-space: nowrap; 
-	@media (min-width: 1200px) {
-		text-align: left; 
-		justify-self: start;
-	}
-}
-
-.logos-logos {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	justify-items: center;
-	align-items: center;
-	gap: clamp(12px, 4vw, 32px);
-	list-style: none;
-	margin: 24px 0 0;
-	padding: 0;
-	width: 100%;
-	@media (min-width: 768px) {
-		grid-template-columns: repeat(3, max-content);
-		justify-content: center; 
-	}
-	@media (min-width: 1200px) {
-		margin: 0;
-		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-		justify-content: normal;
-	}
-}
-
-.logos-logos img {
-	max-height: 28px;
-	width: auto;
-	height: auto;
-	display: block;
-	filter: grayscale(1);
-	opacity: 0.85;
-	@media (max-width: 550px) {
-		max-width: 110px;
 	}
 }

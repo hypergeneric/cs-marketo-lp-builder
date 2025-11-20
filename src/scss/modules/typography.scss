@@ -1,94 +1,242 @@
-h1, h2, h3, h4, h5, p, li, button {
-	text-box: trim-both cap alphabetic;
-}
+// globals
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'CrowdSansBold', sans-serif;
-}
-
-button {
+body {
 	font-family: 'HaasGrotDisp', sans-serif;
-}
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #000;
+	.light ,
+	&.dark .light ,
+	&.light {
+		color: #fff;
+	}
 
-h1 {
-	font-size: 2.5rem;
-}
-
-@media (min-width: 768px) {
-	h1 {
-		font-size: 3rem;
+	.dark ,
+	&.light .dark ,
+	&.dark {
+		color: #000;
 	}
 }
 
-@media (min-width: 1025px) {
-	h1 {
-		font-size: 3.5rem;
-	}
-}
-
-h2 {
+h1, h2, h3, h4, h5, p {
 	margin: 0;
-	font-size: 2rem;
 }
 
-@media (min-width: 768px) {
-	h2 {
-		font-size: 2.5rem;
+// families
+
+.crowdsansbold {
+	font-family: 'CrowdSansBold';
+}
+
+.crowdsansthin {
+	font-family: 'CrowdSansThin';
+}
+
+.crowdsansbook {
+	font-family: 'CrowdSansBook';
+}
+
+.crowdsansmed {
+	font-family: 'CrowdSansMed';
+}
+
+.haasgrotdispmdm {
+	font-family: 'HaasGrotDispMdm';
+}
+
+.haasgrotdisp {
+	font-family: 'HaasGrotDisp';
+}
+
+.crowdsans {
+	&.w_400 {
+		@extend %w400;
+	}
+	&.w_500 {
+		@extend %w500;
+	}
+	&.w_600 {
+		@extend %w600;
+	}
+	&.w_700 {
+		@extend %w700;
+	}
+	&.w_800 {
+		@extend %w800;
+	}
+	&.w_900 {
+		@extend %w900;
+	}
+	&.m_upper {
+		@extend %upper;
 	}
 }
 
-@media (min-width: 1025px) {
-	h2 {
-		font-size: 3rem;
+// modifiers
+
+%upper {
+	text-transform: uppercase;
+}
+%center {
+	text-align: center;
+}
+%w300 {
+	font-weight: 300;
+}
+%w400 {
+	font-weight: 400;
+}
+%w500 {
+	font-weight: 500;
+}
+%w600 {
+	font-weight: 600;
+}
+%w700 {
+	font-weight: 700;
+}
+%w800 {
+	font-weight: 800;
+}
+%w900 {
+	font-weight: 900;
+}
+
+// imported from https://jsfiddle.net/r9o5tmgs/
+
+%s_56 {
+	font-size: 56px;
+	@media (max-width: 1440px) {
+		font-size: 53px;
+	}
+	@media (max-width: 1200px) {
+		font-size: 50px;
+	}
+	@media (max-width: 1024px) {
+		font-size: 47px;
+	}
+	@media (max-width: 768px) {
+		font-size: 44px;
+	}
+	@media (max-width: 568px) {
+		font-size: 42px;
 	}
 }
 
-h3 {
-	margin: 0;
-	font-size: 1.5rem;
-}
+.crowdsans { &.s_56 { @extend %s_56; } }
 
-@media (min-width: 768px) {
-	h3 {
-		font-size: 2rem;
+%s_40 {
+	font-size: 40px;
+	@media (max-width: 1440px) {
+		font-size: 38px;
+	}
+	@media (max-width: 1200px) {
+		font-size: 36px;
+	}
+	@media (max-width: 1024px) {
+		font-size: 34px;
+	}
+	@media (max-width: 768px) {
+		font-size: 32px;
+	}
+	@media (max-width: 568px) {
+		font-size: 30px;
 	}
 }
 
-@media (min-width: 1025px) {
-	h3 {
-		font-size: 2.5rem;
+.crowdsans { &.s_40 { @extend %s_40; } }
+
+%s_48 {
+	font-size: 48px;
+	@media (max-width: 1440px) {
+		font-size: 45px;
+	}
+	@media (max-width: 1200px) {
+		font-size: 43px;
+	}
+	@media (max-width: 1024px) {
+		font-size: 40px;
+	}
+	@media (max-width: 768px) {
+		font-size: 38px;
+	}
+	@media (max-width: 568px) {
+		font-size: 36px;
 	}
 }
 
-h4 {
-	font-size: 1.5rem;
-}
+.crowdsans { &.s_48 { @extend %s_48; } }
 
-@media (min-width: 768px) {
-	h4 {
-		font-size: 1.65rem;
+%s_32 {
+	font-size: 32px;
+	@media (max-width: 1440px) {
+		font-size: 30px;
+	}
+	@media (max-width: 1200px) {
+		font-size: 29px;
+	}
+	@media (max-width: 1024px) {
+		font-size: 27px;
+	}
+	@media (max-width: 768px) {
+		font-size: 25px;
+	}
+	@media (max-width: 568px) {
+		font-size: 24px;
 	}
 }
 
-@media (min-width: 1025px) {
-	h4 {
-		font-size: 2rem;
+.crowdsans { &.s_32 { @extend %s_32; } }
+
+%s_24 {
+	font-size: 24px;
+	@media (max-width: 1440px) {
+		font-size: 23px;
+	}
+	@media (max-width: 1200px) {
+		font-size: 21px;
+	}
+	@media (max-width: 1024px) {
+		font-size: 20px;
+	}
+	@media (max-width: 768px) {
+		font-size: 19px;
+	}
+	@media (max-width: 568px) {
+		font-size: 18px;
 	}
 }
 
-h5 {
-	margin: 0;
-	font-size: 1.15rem;
-}
+.crowdsans { &.s_24 { @extend %s_24; } }
 
-@media (min-width: 768px) {
-	h5 {
-		font-size: 1.25rem;
+%s_16 {
+	font-size: 16px;
+	@media (max-width: 1440px) {
+	}
+	@media (max-width: 1200px) {
+		font-size: 15px;
+	}
+	@media (max-width: 1024px) {
+	}
+	@media (max-width: 768px) {
+		font-size: 14px;
+	}
+	@media (max-width: 568px) {
 	}
 }
 
-@media (min-width: 1025px) {
-	h5 {
-		font-size: 1.5rem;
-	}
+.crowdsans { &.s_16 { @extend %s_16; } }
+
+%lh_125 {
+	line-height: 1.25;
 }
+
+.crowdsans { &.lh_125 { @extend %lh_125; } }
+
+%ls_0 {
+	letter-spacing: 0px;
+}
+
+.crowdsans { &.ls_0 { @extend %ls_0; } }
+

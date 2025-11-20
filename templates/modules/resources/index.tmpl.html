@@ -1,0 +1,23 @@
+<section class="resources spacing-top-none">
+	<div class="container">
+		<div class="heading">
+			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${resourcesHeading|html}</h2>
+		</div>
+		<div class="cards">
+			for index < 3
+				<div class="card has-radius">
+					<div class="inner">
+						<img src="${resourcesEntryImage${index}}|attr" alt="" />
+						<div class="context">
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">${resourcesEntryEyebrow${index}}</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">${resourcesEntryTitle${index}}</h3>
+						</div>
+					</div>
+					<div class="cta-wrap">
+						<a href="${resourcesEntryCtaURL${index}|attr}" class="cta">${resourcesEntryCtaText${index}}</a>
+					</div>
+				</div>
+			endfor
+		</div>
+	</div>
+</section>

@@ -1,0 +1,24 @@
+<section class="case-study">
+	<div class="container">
+		<div class="heading">
+			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${caseStudyHeading|html}</h2>
+			<div class="crowdsans haasgrotdisp s_24 lh_125">${caseStudyBlurb|html}</div>
+		</div>
+		<div class="card has-radius">
+			<div class="context">
+				<div class="quote">
+					<h3 class="crowdsans crowdsansbold w_700 s_32 lh_125">${caseStudyQuoteHeading|html}</h3>
+					<div class="crowdsans haasgrotdisp s_24 lh_125">${caseStudyQuote|html}</div>
+				</div>
+				<div class="attribution">
+					<div class="crowdsans haasgrotdisp s_16 w_600 lh_125">${caseStudyAttribution|html}</div>
+					<img src="${caseStudyLogo}|attr" alt="" />
+				</div>
+				<div class="cta-wrap">
+					<a href="${caseStudyCtaURL|attr}" class="cta">${caseStudyCtaText}</a>
+				</div>
+			</div>
+			<div class="graphic" style="background-image: url( ${caseStudyImage|attr} );"></div>
+		</div>
+	</div>
+</section>

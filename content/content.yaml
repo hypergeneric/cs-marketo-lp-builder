@@ -1,94 +1,131 @@
 metaTitle: "My Marketo Landing Page"
 
-heroHeading: "Page Heading / Title"
-heroBlurb: |
-  <p>Experience the power of CrowdStrike's advanced endpoint protection!</p>
+headerLogo: "https://go.crowdstrike.com/rs/281-OBQ-266/images/CS_logo_Primary.svg?version=1"
+headerLogoAlt: "CrowdStrike Logo"
+headerCtaURL: "#productBundles"
+headerCtaText: "Buy with AWS"
 
-trustHeading: "Why customers trust our security"
-trustEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
-trustEntryHeading0: "Breach protection guarantee"
-trustEntryBlurb0: "Up to $1M in breach protection, backed by a 24/7 incident response team providing full remediation support."
-trustEntryIcon1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-30-day.svg?version=1"
-trustEntryHeading1: "30-day money-back assurance"
-trustEntryBlurb1: "Experience the Falcon platform hassle-free, no-questions-asked refund policy and simple cancellation process."
-trustEntryIcon2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-validated.svg?version=1"
-trustEntryHeading2: "Third-party validated security"
-trustEntryBlurb2: "Recognized as a MITRE ATT&amp;CK evaluation leader, Gartner Magic Quadrant honoree, and SOC 2 Type II certified platform with 99.99% guaranteed uptime."
+heroBackgroundImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+heroBackgroundImageTablet: ""
+heroBackgroundImageMobile: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+heroHeading: "CrowdStrike + AWS:<br />Stop Breaches. Secure AI."
+heroBlurb: "Unified cloud security that thinks, hunts, and protects -- across every AWS workload and AI service."
+heroCtaURL: ""
+heroCtaText: "Buy with AWS"
 
-productsHeading: "Tailored bundles to stop breaches"
-productsPriceLine: "per device, billed annually."
-productEntryHeading0: "Falcon <strong>Go</strong>"
-productsFeatureNextGenTitle: "Next-gen antivirus"
-productsFeatureNextGenTooltip: "Protects against all types of threats, from malware and ransomware to sophisticated attacks, and deploys in minutes, immediately protecting your endpoints."
-productsFeatureDeviceControlTitle: "Device control"
-productsFeatureDeviceControlTooltip: "Provides the visibility and precise control required to enable safe usage of USB devices across your organization."
-productsFeatureMobileDeviceProtectionTitle: "Mobile device protection"
-productsFeatureMobileDeviceProtectionTooltip: "Safeguards your business from mobile threats with advanced protection that detects malicious activity and prevents unauthorized access on Android and iOS devices."
-productsFeatureExpressSupportTitle: "Express Support"
-productsFeatureExpressSupportTooltip: "Available to assist small and medium businesses with installation and operational concerns."
-productsFeatureFirewallManagementTitle: "Firewall management"
-productsFeatureFirewallManagementTooltip: "Delivers simple, centralized host firewall management, making it easy to manage and control host firewall policies."
-productsFeatureEndpointDetectionResponseTitle: "Endpoint detection and response"
-productsFeatureEndpointDetectionResponseTooltip: "Delivers continuous, comprehensive endpoint visibility and automatically detects and intelligently prioritizes malicious activity to ensure nothing is missed and potential breaches are stopped."
-productsFeatureThreatIntelligenceTitle: "Threat intelligence & hunting"
-productsFeatureThreatIntelligenceTooltip: "Partners you with a team of elite cybersecurity experts to hunt continuously within the Falcon platform for faint signs of sophisticated intrusions, leaving attackers nowhere to hide."
-productsFeatureIdentityProtectionTitle: "Identity protection"
-productsFeatureITHygieneTitle: "IT hygiene"
-productsFeatureNextGenSIEMTitle: "Next-gen SIEM"
-productEntryPrice0: "$59.99"
-productEntryUrl0: "https://storev2.ecomm-ssg.dodo.crowdstrike.red/checkout/falcon-go"
-productEntryHeading1: "Falcon <strong>Pro</strong>"
-productEntryPrice1: "$99.99"
-productEntryUrl1: "https://storev2.ecomm-ssg.dodo.crowdstrike.red/checkout/falcon-pro"
-productEntryHeading2: "Falcon <strong>Enterprise</strong>"
-productEntryPrice2: "$184.99"
-productEntryUrl2: "https://storev2.ecomm-ssg.dodo.crowdstrike.red/checkout/falcon-enterprise"
+whatsNewHeading: "What's new with CrowdStrike and AWS"
+whatsNewBlurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+whatsNewEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+whatsNewEntryHeading0: "Falcon Next-Gen SIEM Quick Start for AWS"
+whatsNewEntryBlurb0: "Automate onboarding to gain visibility to AWS services in minutes — not months."
+whatsNewEntryCtaURL0: ""
+whatsNewEntryCtaText0: "Learn more"
+whatsNewEntryIcon1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+whatsNewEntryHeading1: "CrowdStrike Falcon® for AWS pay-as-you-go"
+whatsNewEntryBlurb1: "Secure your business with the #1 ISV on the AWS marketplace."
+whatsNewEntryCtaURL1: ""
+whatsNewEntryCtaText1: "Learn more"
+whatsNewEntryIcon2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+whatsNewEntryHeading2: "CrowdStrike named Partner of the Year"
+whatsNewEntryBlurb2: "CrowdStrike has been selected by AWS as the winner for both AWS Security Technology Partner of the Year and AWS Marketplace Partner of the Year."
+whatsNewEntryCtaURL2: ""
+whatsNewEntryCtaText2: "Learn more"
 
-tabsHeading: "Security simplified"
-tabEntryHeading0: "Get in-depth visibility"
-tabEntryBlurb0: "The CrowdStrike Security Cloud® is the brains behind the Falcon platform. Get complete, real-time visibility into everything happening throughout your environment."
-tabEntryImage0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/in-depth-visibility.png?version=1"
-tabEntryHeading1: "Reduce complexity"
-tabEntryBlurb1: "The Falcon platform is 100% cloud-based and doesn't require hardware, additional software, or configurations."
-tabEntryImage1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/simple-fast-lightweight.png?version=1"
-tabEntryHeading2: "Simple, fast, and lightweight"
-tabEntryBlurb2: "The intelligent, lightweight CrowdStrike Falcon sensor, unlike any other, blocks attacks on your systems while capturing and recording activity as it happens to detect threats fast."
-tabEntryImage2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/reduce-complexity.png?version=1"
+sCurveEntryImage0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+sCurveEntryHeading0: "Secure your AI on AWS across agents, workloads, models, and data"
+sCurveEntryBlurb0: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
+sCurveEntryCtaURL0: ""
+sCurveEntryCtaText0: "Learn more"
+sCurveEntryImage1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+sCurveEntryHeading1: "Secure your AI on AWS across agents, workloads, models, and data"
+sCurveEntryBlurb1: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
+sCurveEntryCtaURL1: ""
+sCurveEntryCtaText1: "Learn more"
+sCurveEntryImage2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+sCurveEntryHeading2: "Secure your AI on AWS across agents, workloads, models, and data"
+sCurveEntryBlurb2: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
+sCurveEntryCtaURL2: ""
+sCurveEntryCtaText2: "Learn more"
+sCurveEntryImage3: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+sCurveEntryHeading3: "Secure your AI on AWS across agents, workloads, models, and data"
+sCurveEntryBlurb3: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
+sCurveEntryCtaURL3: ""
+sCurveEntryCtaText3: "Learn more"
+sCurveEntryImage4: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+sCurveEntryHeading4: "Secure your AI on AWS across agents, workloads, models, and data"
+sCurveEntryBlurb4: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
+sCurveEntryCtaURL4: ""
+sCurveEntryCtaText4: "Learn more"
 
-videoHeading: "See how quickly you can be protected"
-videoThumbnail: "https://go.crowdstrike.com/rs/281-OBQ-266/images/video-thumbnail.png?version=1"
-videoUUID: "kUjyzeZ5xjJ4bsVrjaNwcj"
+featuresHeading: "CrowdStrike's AWS Achivements"
+featuresEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+featuresEntryHeading0: "AWS Competencies"
+featuresEntryBlurb0: |
+  <ul><li>AWS Built-in Competency</li><li>Containers ISV Competency</li><li>Generative AI Software</li><li>MSSP Software Competency</li><li>Security ISV Competency</li><li>Small and Medium Business Software</li></ul>
+featuresEntryCtaURL0: ""
+featuresEntryCtaText0: "Learn more"
+featuresEntryIcon1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+featuresEntryHeading1: "AWS Programs"
+featuresEntryBlurb1:  |
+  <ul><li>AWS Built-in Competency</li><li>Containers ISV Competency</li><li>Generative AI Software</li><li>MSSP Software Competency</li></ul>
+featuresEntryCtaURL1: ""
+featuresEntryCtaText1: "Learn more"
+featuresEntryIcon2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+featuresEntryHeading2: "AWS Services"
+featuresEntryBlurb2:  |
+  <ul><li>AWS Built-in Competency</li><li>Containers ISV Competency</li></ul>
+featuresEntryCtaURL2: ""
+featuresEntryCtaText2: "Learn more"
+
+caseStudyHeading: "CrowdStrike and AWS Customers"
+caseStudyBlurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+caseStudyQuoteHeading: "Geisinger expands CrowdStrike usage to Protect AWS cloud workloads"
+caseStudyQuote: "“CrowdStrike gave us the flexibility to quickly move from protecting our PCs to AWS pods at the click of a button, and with the same platform we know and trust.”"
+caseStudyAttribution: "Zack Gable, CISO, Geisinger"
+caseStudyLogo: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
+caseStudyCtaURL: ""
+caseStudyCtaText: "Read more"
+caseStudyImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+
+resourcesHeading: "Featured Resources"
+resourcesEntryImage0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+resourcesEntryEyebrow0: "Guide"
+resourcesEntryTitle0: "Guide to Securing the AI Operating Environment with CrowdStrike Falcon® Cloud Security and AWS"
+resourcesEntryCtaURL0: ""
+resourcesEntryCtaText0: "Download"
+resourcesEntryImage1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+resourcesEntryEyebrow1: "Data Sheet"
+resourcesEntryTitle1: "Accelerate AWS Cloud Migrations with the CrowdStrike Falcon® platform"
+resourcesEntryCtaURL1: ""
+resourcesEntryCtaText1: "Download"
+resourcesEntryImage2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+resourcesEntryEyebrow2: "Press Release"
+resourcesEntryTitle2: "CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses"
+resourcesEntryCtaURL2: ""
+resourcesEntryCtaText2: "Download"
 
 faqsHeading: "FAQs"
-faqsEntryHeading0: "Are there extra fees besides the annual subscription cost?"
-faqsEntryBlurb0: |
-  <p>No. Your subscription is billed annually, with the full amount due at the start of the subscription period. There are no other fees or charges beyond the annual subscription cost. You can cancel within 30 days for a full refund. Optional, bundle add-ons may be purchased for an additional cost.</p>
-faqsEntryHeading1: "Can I pay monthly?"
-faqsEntryBlurb1: |
-  <p>Currently, we only offer annual billing for our bundles. You can choose multi-year billing terms for additional discounts.</p>
-faqsEntryHeading2: "Can I upgrade my product bundle or add more products at any time?"
-faqsEntryBlurb2: |
-  <p>Product add-ons are available and can be purchased at any time but vary by bundle type. To upgrade your bundle, contact us at <a href="mailto:subscriptions@crowdstrike.com" data-tracked="true">subscriptions@crowdstrike.com</a>.</p>
-faqsEntryHeading3: "What operating systems does CrowdStrike support?"
-faqsEntryBlurb3: |
-  <p>The CrowdStrike Falcon® platform supports Windows, MacOS, and Linux operating systems. For a complete list of supported operating systems and versions, visit our <a href="https://www.crowdstrike.com/products/faq/" data-tracked="true">platform FAQ page</a>.</p>
-faqsEntryHeading4: "How do I deploy the Falcon sensor?"
-faqsEntryBlurb4: |
-  <ol>
-    <li>Prepare for installation: For optimal performance, uninstall or disable other antivirus solutions before installing the Falcon sensor.</li>
-    <li>Activate your account via an email you should've received.</li>
-    <li>Log in and install sensors to your devices by following the instructions on the main view once you log in. It includes video guides on how to install for your particular OS. You can also find instructions&nbsp;<a href="https://www.crowdstrike.com/free-trial-guide/start-and-install/" data-tracked="true">here</a>.</li>
-  </ol>
-faqsEntryHeading5: "What if I'm using an endpoint security solution other than CrowdStrike Falcon?"
-faqsEntryBlurb5: |
-  <p>Any existing solutions should be uninstalled before you begin. CrowdStrike Falcon is pre-configured to the highest security setting for your protection and will work optimally if it is the only AV solution on your endpoints. If you need assistance, contact the Trial Team at <a href="mailto:falcontrial@crowdstrike.com">falcontrial@crowdstrike.com</a>.</p>
-faqsEntryHeading6: "How does the lightweight sensor work? Do I need to reinstall at any time?"
-faqsEntryBlurb6: |
-  <p>The CrowdStrike Falcon® sensor is lightweight and only needs to be deployed once. Updates are automatic and the sensor works online and offline.</p>
-faqsEntryHeading7: "What type of support does CrowdStrike provide?"
-faqsEntryBlurb7: |
-  <p>Falcon Go, Pro, and Enterprise include Express Support. This provides enhanced support with extended coverage hours and direct access to technical account managers, ensuring rapid resolution of any deployment or operational issues.</p>
+faqsOverview: "Overview"
+faqsOverviewHeading0: "What is CrowdStrike Falcon® for AWS Pay-As-You-Go?"
+faqsOverviewBlurb0: |
+  <p>CrowdStrike Falcon® for AWS Pay-As-You-Go helps organizations quickly protect their AWS environments while being billed monthly as part of your AWS invoice. CrowdStrike Falcon® for AWS has two product offerings:</p>
+  <ul>
+    <li>CrowdStrike Falcon® Cloud Security Runtime delivers agent-based workload protection for your cloud instances, container clusters, and managed containers to automatically detect, investigate, and respond to threats in real-time.</li>
+    <li>CrowdStrike Falcon® Next-Gen SIEM ingests and correlates multi-vendor security events, simplifies investigation and search, and provides 13 month data retention.</li>
+  </ul>
+  <p>Subscribing to Falcon for AWS enables customers to use any combination of the listed pay-as-you-go products.</p>
+faqsOnboarding: "Onboarding"
+faqsOnboardingHeading0: "What is CrowdStrike Falcon® for AWS Pay-As-You-Go?"
+faqsOnboardingBlurb0: |
+  <p>CrowdStrike Falcon® for AWS Pay-As-You-Go helps organizations quickly protect their AWS environments while being billed monthly as part of your AWS invoice. CrowdStrike Falcon® for AWS has two product offerings:</p>
+  <ul>
+    <li>CrowdStrike Falcon® Cloud Security Runtime delivers agent-based workload protection for your cloud instances, container clusters, and managed containers to automatically detect, investigate, and respond to threats in real-time.</li>
+    <li>CrowdStrike Falcon® Next-Gen SIEM ingests and correlates multi-vendor security events, simplifies investigation and search, and provides 13 month data retention.</li>
+  </ul>
+  <p>Subscribing to Falcon for AWS enables customers to use any combination of the listed pay-as-you-go products.</p>
 
-calloutHeading: "100% ransomware prevention; 0 false positives"
-calloutBlurb: |
-  <p>The CrowdStrike Falcon platform achieved 100% ransomware prevention with zero false positives from SE Labs, saving businesses time and resources.</p>
+calloutHeading: "Build fast. Secure faster.<br />Start today."
+calloutBlurb: "Secure your business with the #1 ISV on the AWS marketplace."
+calloutCtaURL: ''
+calloutCtaText: "Buy with AWS"
+calloutImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"

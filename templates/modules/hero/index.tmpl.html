@@ -1,40 +1,11 @@
-<section class="hero">
+<section class="hero" style="--background-image: url( '${heroBackgroundImage|attr}' );--background-image-tablet: url( '${heroBackgroundImageTablet|attr}' );--background-image-mobile: url( '${heroBackgroundImageMobile|attr}' );">
 	<div class="container">
-		<div class="hero-container">
-			<div class="hero-copy centered">
-				<div class="hero-reviews">
-					<ul class="list-style-none">
-						<li>
-							<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/G2_Logo_Red_RGB.svg?version=1" alt="" />
-						</li>
-						<li>
-							<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/tr-logo.svg?version=1" alt="" />
-						</li>
-						<li>
-							<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/Gartner_logo.svg?version=1" alt="" />
-						</li>
-						<li>
-							<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-stars.svg?version=1" alt="" />
-						</li>
-						<li>3,300+ reviews</li>
-					</ul>
-				</div>
-				<h1 class="hero-title">${heroHeading}</h1>
-				<div class="hero-subtitle">${heroBlurb|html}</div>
+		<div class="context">
+			<h1 class="crowdsans crowdsansbold w_700 s_56 lh_125">${heroHeading|html}</h1>
+			<div class="crowdsans haasgrotdisp s_24 lh_125">${heroBlurb|html}</div>
+			<div class="cta-wrap">
+				<a href="${heroCtaURL|attr}" class="cta">${heroCtaText}</a>
 			</div>
-		</div>
-	</div>
-	<div class="logos">
-		<div class="container">
-			<p class="logos-label">As seen on</p>
-			<ul class="logos-logos list-style-none">
-				<li><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/CNBC-logo.svg?version=1" alt="CNBC Logo"></li>
-				<li><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/bloomberg-logo.svg?version=1" alt="Bloomberg Logo"></li>
-				<li><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/cnn-logo.svg?version=1" alt="CNN Logo"></li>
-				<li><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/forbes-logo.svg?version=1" alt="Forbes Logo"></li>
-				<li><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/wsj-logo.svg?version=1" alt="Wall St Journal Logo"></li>
-				<li><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/reuters-logo.svg?version=1" alt="Rueters Logo"></li>
-			</ul>
 		</div>
 	</div>
 </section>

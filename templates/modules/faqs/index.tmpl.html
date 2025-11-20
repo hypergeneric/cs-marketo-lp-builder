@@ -1,20 +1,65 @@
-<section class="faqs">
+<section class="faqs spacing-top-none spacing-bottom-none">
 	<div class="container">
-		<div class="faqs-header">
-			<h2>${faqsHeading}</h2>
+		<div class="heading">
+			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${faqsHeading}</h2>
 		</div>
 		<div class="faqs-items">
-			for index < 8
-			<div class="faqs-item">
-				<div class="faqs-question">
-					<button class="flex justify-between items-center">
-						${faqsEntryHeading${index}}
-						<span class="faqs-icon"></span>
-					</button>
+			<div class="faqs-group">
+				<h3 class="crowdsans crowdsansbold w_700 s_32 lh_125">${faqsOverview}</h3>
+				for index < 1
+				<div class="faqs-item">
+					<div class="faqs-question">
+						<button class="flex justify-between items-center">
+							${faqsOverviewHeading${index}}
+							<span class="faqs-icon"></span>
+						</button>
+					</div>
+					<div class="faqs-answer">${faqsOverviewBlurb${index}|html}</div>
 				</div>
-				<div class="faqs-answer">${faqsEntryBlurb${index}|html}</div>
+				endfor
 			</div>
-			endfor
+			<div class="faqs-group">
+				<h3 class="crowdsans crowdsansbold w_700 s_32 lh_125">${faqsOnboarding}</h3>
+				for index < 4
+				<div class="faqs-item">
+					<div class="faqs-question">
+						<button class="flex justify-between items-center">
+							${faqsOnboardingHeading${index}}
+							<span class="faqs-icon"></span>
+						</button>
+					</div>
+					<div class="faqs-answer">${faqsOnboardingBlurb${index}|html}</div>
+				</div>
+				endfor
+			</div>
+			<div class="faqs-group">
+				<h3 class="crowdsans crowdsansbold w_700 s_32 lh_125">${faqsBilling}</h3>
+				for index < 3
+				<div class="faqs-item">
+					<div class="faqs-question">
+						<button class="flex justify-between items-center">
+							${faqsBillingHeading${index}}
+							<span class="faqs-icon"></span>
+						</button>
+					</div>
+					<div class="faqs-answer">${faqsBillingBlurb${index}|html}</div>
+				</div>
+				endfor
+			</div>
+			<div class="faqs-group">
+				<h3 class="crowdsans crowdsansbold w_700 s_32 lh_125">${faqsSupport}</h3>
+				for index < 3
+				<div class="faqs-item">
+					<div class="faqs-question">
+						<button class="flex justify-between items-center">
+							${faqsSupportHeading${index}}
+							<span class="faqs-icon"></span>
+						</button>
+					</div>
+					<div class="faqs-answer">${faqsSupportBlurb${index}|html}</div>
+				</div>
+				endfor
+			</div>
 		</div>
 	</div>
 </section>

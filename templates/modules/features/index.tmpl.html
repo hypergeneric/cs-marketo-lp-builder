@@ -1,0 +1,16 @@
+<section class="features spacing-top-none spacing-bottom-none">
+	<div class="container">
+		<div class="context">
+			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${featuresHeading|html}</h2>
+		</div>
+		<div class="entries">
+			for index < 3
+				<div class="entry">
+					<div><img src="${featuresEntryIcon${index}}|attr" alt="" /></div>
+					<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">${featuresEntryHeading${index}}</h3>
+					<div class="crowdsans haasgrotdisp s_24 lh_125">${featuresEntryBlurb${index}|html}</div>
+				</div>
+			endfor
+		</div>
+	</div>
+</section>
