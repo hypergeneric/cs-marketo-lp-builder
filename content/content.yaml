@@ -13,6 +13,10 @@ heroBlurb: "Unified cloud security that thinks, hunts, and protects -- across ev
 heroCtaURL: ""
 heroCtaText: "Buy with AWS"
 
+bannerHeading: "CrowdStrike named AWS 2025 global security partner & global marketplace partner of the year"
+bannerCtaURL: ""
+bannerCtaText: "Read press release"
+
 whatsNewHeading: "What's new with CrowdStrike and AWS"
 whatsNewBlurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
 whatsNewEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"

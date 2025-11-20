@@ -1,0 +1,44 @@
+@use "../../../src/scss/modules/vars" as *;
+
+.banner {
+	.card {
+		background-clip: padding-box,border-box;
+		border: 1px solid transparent;
+		background-size: calc(100% + 2px) calc(100% + 2px);
+		background-image: linear-gradient(#ec0000,#ec0000),linear-gradient(90deg,#ec0000 30%,#000);
+		background-position: 50%;
+		display: flex;
+		align-items: center;
+		@media ( max-width: $mobile_wide ) {
+			flex-direction: column;
+		}
+	}
+	.heading {
+		filter: drop-shadow(9px 0px 26px rgba(0,0,0,0.45));
+	}
+	h2, .cta-wrap {
+		padding: 3rem 5rem;
+		@media ( max-width: $tablet_wide ) {
+			padding: 2rem;
+		}
+	}
+	h2 {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+		padding-right: 100px;
+		background: linear-gradient(89.99deg, rgba(0, 0, 0, 0.2) -11.86%, rgba(167, 167, 167, 0.2) 46.45%, rgba(0, 0, 0, 0.2) 100%), #000000;
+		clip-path: polygon( calc( 100% - 64px ) 0, calc( 100% - 2px ) 50%, calc( 100% - 64px ) 100%, 0 100%, 0 0);
+		@media ( max-width: $mobile_wide ) {
+			text-align: center;
+			padding: 2rem 2rem calc( 2rem + 32px ) 2rem;
+			clip-path: polygon( 
+				100% 0, 
+				100% calc( 100% - 32px ), 
+				50% calc( 100% - 2px ), 
+				0 calc( 100% - 32px ), 
+				0 0 );
+		}
+	}
+}
