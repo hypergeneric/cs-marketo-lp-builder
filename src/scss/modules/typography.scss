@@ -11,7 +11,6 @@ body {
 	&.light {
 		color: #fff;
 	}
-
 	.dark ,
 	&.light .dark ,
 	&.dark {
@@ -21,6 +20,12 @@ body {
 
 h1, h2, h3, h4, h5, p {
 	margin: 0;
+}
+
+h1, h2, h3, h4, h5, p, li {
+	a {
+		color: var( --red100 );
+	}
 }
 
 // families

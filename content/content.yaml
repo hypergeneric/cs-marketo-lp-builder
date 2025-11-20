@@ -37,7 +37,7 @@ bannerCtaClass:
 
 whatsNewHeading: "What's new with CrowdStrike and AWS"
 whatsNewEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
-whatsNewEntryHeading0: "Falcon Next-Gen SIEM Quick Start for AWS"
+whatsNewEntryHeading0: 'Falcon Next-Gen SIEM Quick Start for AWS<a href="#footnote"><sup>1</sup></a>'
 whatsNewEntryBlurb0: "Automate onboarding to gain visibility to AWS services in minutes — not months."
 whatsNewEntryCtaURL0: ""
 whatsNewEntryCtaText0: "Learn more"
@@ -73,7 +73,7 @@ whatsNewEntryCtaClass2:
 sCurveEntryImage0: "https://play.vidyard.com/VGGMVdBhWq1yEWwiRaFY77.jpg"
 sCurveEntryHeading0: "Secure your AI on AWS across agents, workloads, models, and data"
 sCurveEntryBlurb0: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
-sCurveEntryCtaURL0: ""
+sCurveEntryCtaURL0: "https://play.vidyard.com/VGGMVdBhWq1yEWwiRaFY77.jpg"
 sCurveEntryCtaText0: "Learn more"
 sCurveEntryCtaClass0:
   default: false
@@ -211,17 +211,6 @@ resourcesEntryCtaClass4:
   true_value: "arrow-external"
   false_value_name: "Internal"
   true_value_name: "External"
-resourcesEntryImage5: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
-resourcesEntryEyebrow5: "Press Release"
-resourcesEntryTitle5: "CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses"
-resourcesEntryCtaURL5: ""
-resourcesEntryCtaText5: "Download"
-resourcesEntryCtaClass5:
-  default: false
-  false_value: "arrow"
-  true_value: "arrow-external"
-  false_value_name: "Internal"
-  true_value_name: "External"
 
 faqsHeading: "FAQs"
 faqsOverview: "Overview"
@@ -254,3 +243,5 @@ calloutCtaClass:
   true_value: "arrow-external"
   false_value_name: "Internal"
   true_value_name: "External"
+
+footerFootnote: '<p id="footnote" class="crowdsans haasgrotdisp s_16 lh_125">Yada yada</p>'

@@ -50,6 +50,15 @@ function extractVidyardUuid(src) {
 		return tail || null;
 	}
 }
+function launchLightbox(uuid) {
+	if (!window.VidyardV4 || !VidyardV4.api) {
+		return;
+	}
+	var players = VidyardV4.api.getPlayersByUUID(uuid);
+	if (players && players[0]) {
+		players[0].showLightbox();
+	}
+}
 
 </script>
 	<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
@@ -99,7 +108,7 @@ function extractVidyardUuid(src) {
 				<div class="card flex-v gap-2 thirds has-radius">
 					<div class="inner flex-v gap-15">
 						<div><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1|attr" alt="" /></div>
-						<h3 class="has-gradient-line crowdsans crowdsansbold w_700 s_24 lh_125">Falcon Next-Gen SIEM Quick Start for AWS</h3>
+						<h3 class="has-gradient-line crowdsans crowdsansbold w_700 s_24 lh_125">Falcon Next-Gen SIEM Quick Start for AWS<a href="#footnote"><sup>1</sup></a></h3>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Automate onboarding to gain visibility to AWS services in minutes — not months.</div>
 					</div>
 					<div class="cta-wrap">
@@ -137,7 +146,7 @@ function extractVidyardUuid(src) {
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">Secure your AI on AWS across agents, workloads, models, and data</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation.</div>
 						<div class="cta-wrap">
-							<a href="" class="cta arrow">Learn more</a>
+							<a href="https://play.vidyard.com/VGGMVdBhWq1yEWwiRaFY77.jpg" class="cta arrow">Learn more</a>
 						</div>
 					</div>
 				</div>
@@ -186,6 +195,7 @@ function extractVidyardUuid(src) {
 </section>
 <script>
 	var images = document.querySelectorAll('.s-curve .graphic img');
+	var links  = document.querySelectorAll('.s-curve .cta');
 	images.forEach(function (img) {
 		var src = img.getAttribute('src');
 		if (!src) {
@@ -199,12 +209,29 @@ function extractVidyardUuid(src) {
 			return;
 		}
 		img.classList.add('vidyard-player-embed');
-		img.style.width = '100%';
+		img.style.width  = '100%';
 		img.style.margin = 'auto';
 		img.style.display = 'block';
 		img.setAttribute('data-uuid', uuid);
 		img.setAttribute('data-v', '4');
 		img.setAttribute('data-type', 'lightbox');
+	});
+	links.forEach(function (link) {
+		var href = link.getAttribute('href');
+		if (!href) {
+			return;
+		}
+		if (href.indexOf('play.vidyard.com') === -1) {
+			return;
+		}
+		var uuid = extractVidyardUuid(href);
+		if (!uuid) {
+			return;
+		}
+		link.addEventListener('click', function (e) {
+			e.preventDefault();
+			launchLightbox(uuid);
+		});
 	});
 </script>
 <section class="features spacing-top-none spacing-bottom-none">
@@ -321,21 +348,9 @@ function extractVidyardUuid(src) {
 						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
-				<div class="card flex-v gap-2 thirds has-radius">
-					<div class="inner">
-						<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1|attr" alt="" />
-						<div class="context">
-							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">Press Release</div>
-							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses</h3>
-						</div>
-					</div>
-					<div class="cta-wrap">
-						<a href="" class="cta arrow">Download</a>
-					</div>
-				</div>
 		</div>
-		<div class="cta-wrap">
-			<a href="#" class="cta transparent black outline js-resources-toggle">View More</a>
+		<div class="action-wrap">
+			<a href="#" class="cta transparent black outline arrow-down js-resources-toggle">View More</a>
 		</div>
 	</div>
 </section>
@@ -346,6 +361,8 @@ function extractVidyardUuid(src) {
 		e.preventDefault();
 		var collapsed = section.classList.toggle('is-collapsed');
 		toggle.textContent = collapsed ? 'View More' : 'View Less';
+		toggle.classList.toggle('arrow-down', collapsed);
+		toggle.classList.toggle('arrow-up', !collapsed);
 	});
 </script><section class="faqs spacing-top-none spacing-bottom-none">
 	<div class="container">
@@ -500,7 +517,7 @@ function extractVidyardUuid(src) {
 			}
 		});
 	});
-</script><section class="callout">
+</script><section class="callout spacing-bottom-none">
 	<div class="container">
 		<div class="card flex gap-2 light has-radius">
 			<div class="context flex-v gap-15">
@@ -515,7 +532,12 @@ function extractVidyardUuid(src) {
 	</div>
 </section>
 		</main>
-	</body><footer class="footer">
+	</body><section class="prefooter spacing-top-small spacing-bottom-small">
+	<div class="container">
+		<p id="footnote" class="crowdsans haasgrotdisp s_16 lh_125">Yada yada</p>
+	</div>
+</section>
+</footer><footer class="footer">
 	<div class="container">
 		<div class="flex justify-between">
 			<div class="brand">

@@ -4,13 +4,13 @@
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">${resourcesHeading|html}</h2>
 		</div>
 		<div class="cards flex gap-2">
-			for index < 6
+			for index < 5
 				<div class="card flex-v gap-2 thirds has-radius">
 					<div class="inner">
 						<img src="${resourcesEntryImage${index}}|attr" alt="" />
 						<div class="context">
 							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">${resourcesEntryEyebrow${index}}</div>
-							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">${resourcesEntryTitle${index}}</h3>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">${resourcesEntryTitle${index}|html}</h3>
 						</div>
 					</div>
 					<div class="cta-wrap">
@@ -19,8 +19,8 @@
 				</div>
 			endfor
 		</div>
-		<div class="cta-wrap">
-			<a href="#" class="cta transparent black outline js-resources-toggle">View More</a>
+		<div class="action-wrap">
+			<a href="#" class="cta transparent black outline arrow-down js-resources-toggle">View More</a>
 		</div>
 	</div>
 </section>
@@ -31,5 +31,7 @@
 		e.preventDefault();
 		var collapsed = section.classList.toggle('is-collapsed');
 		toggle.textContent = collapsed ? 'View More' : 'View Less';
+		toggle.classList.toggle('arrow-down', collapsed);
+		toggle.classList.toggle('arrow-up', !collapsed);
 	});
 </script>

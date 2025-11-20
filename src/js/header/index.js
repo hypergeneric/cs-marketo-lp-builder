@@ -38,3 +38,12 @@ function extractVidyardUuid(src) {
 		return tail || null;
 	}
 }
+function launchLightbox(uuid) {
+	if (!window.VidyardV4 || !VidyardV4.api) {
+		return;
+	}
+	var players = VidyardV4.api.getPlayersByUUID(uuid);
+	if (players && players[0]) {
+		players[0].showLightbox();
+	}
+}
