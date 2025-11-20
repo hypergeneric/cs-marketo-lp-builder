@@ -8,7 +8,7 @@
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">${sCurveEntryHeading${index}}</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">${sCurveEntryBlurb${index}}</div>
 						<div class="cta-wrap">
-							<a href="${sCurveEntryCtaURL${index}|attr}" class="cta">${sCurveEntryCtaText${index}}</a>
+							<a href="${sCurveEntryCtaURL${index}|attr}" class="cta ${sCurveEntryCtaClass${index}|boolean}">${sCurveEntryCtaText${index}}</a>
 						</div>
 					</div>
 				</div>
@@ -16,3 +16,26 @@
 		</div>
 	</div>
 </section>
+<script>
+	var images = document.querySelectorAll('.s-curve .graphic img');
+	images.forEach(function (img) {
+		var src = img.getAttribute('src');
+		if (!src) {
+			return;
+		}
+		if (src.indexOf('play.vidyard.com') === -1) {
+			return;
+		}
+		var uuid = extractVidyardUuid(src);
+		if (!uuid) {
+			return;
+		}
+		img.classList.add('vidyard-player-embed');
+		img.style.width = '100%';
+		img.style.margin = 'auto';
+		img.style.display = 'block';
+		img.setAttribute('data-uuid', uuid);
+		img.setAttribute('data-v', '4');
+		img.setAttribute('data-type', 'lightbox');
+	});
+</script>

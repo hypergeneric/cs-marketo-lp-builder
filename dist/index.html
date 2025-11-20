@@ -9,7 +9,50 @@
 	<title>My Marketo Landing Page</title>
 
 	<link rel="stylesheet" href="styles.css">
-	
+	<script>
+function extractVidyardUuid(src) {
+	try {
+		var urlObj = new URL(src, window.location.origin);
+		var pathname = urlObj.pathname || '';
+		var parts = pathname.split('/').filter(function (part) {
+			return part !== '';
+		});
+
+		if (parts.length === 0) {
+			return null;
+		}
+
+		// Last path segment, strip extension if present
+		var last = parts[parts.length - 1];
+		var dotIndex = last.indexOf('.');
+
+		if (dotIndex !== -1) {
+			last = last.slice(0, dotIndex);
+		}
+
+		return last || null;
+	} catch (e) {
+		// Fallback: very simple parse if URL() fails
+		var path = src.split('?')[0];
+		var segments = path.split('/');
+
+		if (segments.length === 0) {
+			return null;
+		}
+
+		var tail = segments[segments.length - 1];
+		var dot = tail.indexOf('.');
+
+		if (dot !== -1) {
+			tail = tail.slice(0, dot);
+		}
+
+		return tail || null;
+	}
+}
+
+</script>
+	<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
 </head>
 
 	<body><header class="header">
@@ -21,7 +64,7 @@
 				</div>
 			</div>
 			<div class="header-contact">
-				<a href="#productBundles" class="cta">Buy with AWS</a>
+				<a href="#productBundles" class="cta arrow-external">Buy with AWS</a>
 			</div>
 		</div>
 	</div>
@@ -32,7 +75,7 @@
 			<h1 class="crowdsans crowdsansbold w_700 s_56 lh_125">CrowdStrike + AWS:<br />Stop Breaches. Secure AI.</h1>
 			<div class="crowdsans haasgrotdisp s_24 lh_125">Unified cloud security that thinks, hunts, and protects -- across every AWS workload and AI service.</div>
 			<div class="cta-wrap">
-				<a href="" class="cta">Buy with AWS</a>
+				<a href="" class="cta arrow">Buy with AWS</a>
 			</div>
 		</div>
 	</div>
@@ -43,7 +86,7 @@
 				<h2 class="crowdsans crowdsansbold w_700 s_24 lh_125">CrowdStrike named AWS 2025 global security partner & global marketplace partner of the year</h2>
 			</div>
 			<div class="cta-wrap">
-				<a href="" class="cta outline">Read press release</a>
+				<a href="" class="cta outline arrow">Read press release</a>
 			</div>
 		</div>
 	</div>
@@ -51,7 +94,6 @@
 	<div class="container flex-v gap-4">
 		<div class="heading-center flex-v gap-2">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">What's new with CrowdStrike and AWS</h2>
-			<div class="crowdsans haasgrotdisp s_24 lh_125">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</div>
 		</div>
 		<div class="cards flex gap-2">
 				<div class="card flex-v gap-2 thirds has-radius">
@@ -61,7 +103,7 @@
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Automate onboarding to gain visibility to AWS services in minutes — not months.</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="" class="cta">Learn more</a>
+						<a href="" class="cta arrow">Learn more</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
@@ -71,7 +113,7 @@
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Secure your business with the #1 ISV on the AWS marketplace.</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="" class="cta">Learn more</a>
+						<a href="" class="cta arrow">Learn more</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
@@ -81,7 +123,7 @@
 						<div class="crowdsans haasgrotdisp s_24 lh_125">CrowdStrike has been selected by AWS as the winner for both AWS Security Technology Partner of the Year and AWS Marketplace Partner of the Year.</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="" class="cta">Learn more</a>
+						<a href="" class="cta arrow">Learn more</a>
 					</div>
 				</div>
 		</div>
@@ -90,12 +132,12 @@
 	<div class="container">
 		<div class="entries flex-v">
 				<div class="entry flex gap-4">
-					<div class="graphic has-radius"><img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1|attr" alt="" /></div>
+					<div class="graphic has-radius"><img src="https://play.vidyard.com/VGGMVdBhWq1yEWwiRaFY77.jpg|attr" alt="" /></div>
 					<div class="context flex-v gap-15">
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">Secure your AI on AWS across agents, workloads, models, and data</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation.</div>
 						<div class="cta-wrap">
-							<a href="" class="cta">Learn more</a>
+							<a href="" class="cta arrow">Learn more</a>
 						</div>
 					</div>
 				</div>
@@ -105,7 +147,7 @@
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">Secure your AI on AWS across agents, workloads, models, and data</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation.</div>
 						<div class="cta-wrap">
-							<a href="" class="cta">Learn more</a>
+							<a href="" class="cta arrow">Learn more</a>
 						</div>
 					</div>
 				</div>
@@ -115,7 +157,7 @@
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">Secure your AI on AWS across agents, workloads, models, and data</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation.</div>
 						<div class="cta-wrap">
-							<a href="" class="cta">Learn more</a>
+							<a href="" class="cta arrow">Learn more</a>
 						</div>
 					</div>
 				</div>
@@ -125,7 +167,7 @@
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">Secure your AI on AWS across agents, workloads, models, and data</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation.</div>
 						<div class="cta-wrap">
-							<a href="" class="cta">Learn more</a>
+							<a href="" class="cta arrow">Learn more</a>
 						</div>
 					</div>
 				</div>
@@ -135,13 +177,37 @@
 						<h2 class="crowdsans crowdsansbold w_700 s_40 lh_125">Secure your AI on AWS across agents, workloads, models, and data</h2>
 						<div class="crowdsans haasgrotdisp s_24 lh_125">Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation.</div>
 						<div class="cta-wrap">
-							<a href="" class="cta">Learn more</a>
+							<a href="" class="cta arrow">Learn more</a>
 						</div>
 					</div>
 				</div>
 		</div>
 	</div>
-</section><section class="features spacing-top-none spacing-bottom-none">
+</section>
+<script>
+	var images = document.querySelectorAll('.s-curve .graphic img');
+	images.forEach(function (img) {
+		var src = img.getAttribute('src');
+		if (!src) {
+			return;
+		}
+		if (src.indexOf('play.vidyard.com') === -1) {
+			return;
+		}
+		var uuid = extractVidyardUuid(src);
+		if (!uuid) {
+			return;
+		}
+		img.classList.add('vidyard-player-embed');
+		img.style.width = '100%';
+		img.style.margin = 'auto';
+		img.style.display = 'block';
+		img.setAttribute('data-uuid', uuid);
+		img.setAttribute('data-v', '4');
+		img.setAttribute('data-type', 'lightbox');
+	});
+</script>
+<section class="features spacing-top-none spacing-bottom-none">
 	<div class="container flex-v gap-4">
 		<div class="heading-center flex-v gap-2">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">CrowdStrike's AWS Achivements</h2>
@@ -171,7 +237,6 @@
 	<div class="container flex-v gap-4">
 		<div class="heading-center flex-v gap-2">
 			<h2 class="crowdsans crowdsansbold w_700 s_48 lh_125">CrowdStrike and AWS Customers</h2>
-			<div class="crowdsans haasgrotdisp s_24 lh_125">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</div>
 		</div>
 		<div class="card flex gap-4 has-radius">
 			<div class="context flex-v gap-15">
@@ -184,7 +249,7 @@
 					<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1|attr" alt="" />
 				</div>
 				<div class="cta-wrap">
-					<a href="" class="cta">Read more</a>
+					<a href="" class="cta arrow">Read more</a>
 				</div>
 			</div>
 			<div class="graphic" style="background-image: url( https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1 );"></div>
@@ -205,7 +270,7 @@
 						</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="" class="cta">Download</a>
+						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
@@ -217,7 +282,7 @@
 						</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="" class="cta">Download</a>
+						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
@@ -229,43 +294,43 @@
 						</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="" class="cta">Download</a>
+						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
 					<div class="inner">
-						<img src="[resourcesEntryImage3]|attr" alt="" />
+						<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1|attr" alt="" />
 						<div class="context">
-							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">[resourcesEntryEyebrow3]</div>
-							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">[resourcesEntryTitle3]</h3>
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">Press Release</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses</h3>
 						</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="[resourcesEntryCtaURL3]" class="cta">[resourcesEntryCtaText3]</a>
+						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
 					<div class="inner">
-						<img src="[resourcesEntryImage4]|attr" alt="" />
+						<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1|attr" alt="" />
 						<div class="context">
-							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">[resourcesEntryEyebrow4]</div>
-							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">[resourcesEntryTitle4]</h3>
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">Press Release</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses</h3>
 						</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="[resourcesEntryCtaURL4]" class="cta">[resourcesEntryCtaText4]</a>
+						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
 				<div class="card flex-v gap-2 thirds has-radius">
 					<div class="inner">
-						<img src="[resourcesEntryImage5]|attr" alt="" />
+						<img src="https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1|attr" alt="" />
 						<div class="context">
-							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">[resourcesEntryEyebrow5]</div>
-							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">[resourcesEntryTitle5]</h3>
+							<div class="eyebrow crowdsans haasgrotdisp s_16 w_600 lh_125">Press Release</div>
+							<h3 class="crowdsans crowdsansbold w_700 s_24 lh_125">CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses</h3>
 						</div>
 					</div>
 					<div class="cta-wrap">
-						<a href="[resourcesEntryCtaURL5]" class="cta">[resourcesEntryCtaText5]</a>
+						<a href="" class="cta arrow">Download</a>
 					</div>
 				</div>
 		</div>
@@ -442,7 +507,7 @@
 				<h2 class="crowdsans crowdsansbold w_700 s_32 lh_125">Build fast. Secure faster.<br />Start today.</h2>
 				<div class="crowdsans haasgrotdisp s_16 lh_125">Secure your business with the #1 ISV on the AWS marketplace.</div>
 				<div class="cta-wrap">
-					<a href="" class="cta">Buy with AWS</a>
+					<a href="" class="cta arrow">Buy with AWS</a>
 				</div>
 			</div>
 			<div class="graphic" style="background-image: url( https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1 );"></div>

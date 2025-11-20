@@ -5,7 +5,7 @@
 				<h2 class="crowdsans crowdsansbold w_700 s_32 lh_125">${calloutHeading|html}</h2>
 				<div class="crowdsans haasgrotdisp s_16 lh_125">${calloutBlurb|html}</div>
 				<div class="cta-wrap">
-					<a href="${calloutCtaURL|attr}" class="cta">${calloutCtaText}</a>
+					<a href="${calloutCtaURL|attr}" class="cta ${calloutCtaClass|boolean}">${calloutCtaText}</a>
 				</div>
 			</div>
 			<div class="graphic" style="background-image: url( ${calloutImage|attr} );"></div>

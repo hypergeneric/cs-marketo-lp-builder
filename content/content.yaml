@@ -4,6 +4,12 @@ headerLogo: "https://go.crowdstrike.com/rs/281-OBQ-266/images/CS_logo_Primary.sv
 headerLogoAlt: "CrowdStrike Logo"
 headerCtaURL: "#productBundles"
 headerCtaText: "Buy with AWS"
+headerCtaClass:
+  default: true
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 heroBackgroundImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 heroBackgroundImageTablet: ""
@@ -12,84 +18,142 @@ heroHeading: "CrowdStrike + AWS:<br />Stop Breaches. Secure AI."
 heroBlurb: "Unified cloud security that thinks, hunts, and protects -- across every AWS workload and AI service."
 heroCtaURL: ""
 heroCtaText: "Buy with AWS"
+heroCtaClass:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 bannerHeading: "CrowdStrike named AWS 2025 global security partner & global marketplace partner of the year"
 bannerCtaURL: ""
 bannerCtaText: "Read press release"
+bannerCtaClass:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 whatsNewHeading: "What's new with CrowdStrike and AWS"
-whatsNewBlurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
 whatsNewEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 whatsNewEntryHeading0: "Falcon Next-Gen SIEM Quick Start for AWS"
 whatsNewEntryBlurb0: "Automate onboarding to gain visibility to AWS services in minutes — not months."
 whatsNewEntryCtaURL0: ""
 whatsNewEntryCtaText0: "Learn more"
+whatsNewEntryCtaClass0:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 whatsNewEntryIcon1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 whatsNewEntryHeading1: "CrowdStrike Falcon® for AWS pay-as-you-go"
 whatsNewEntryBlurb1: "Secure your business with the #1 ISV on the AWS marketplace."
 whatsNewEntryCtaURL1: ""
 whatsNewEntryCtaText1: "Learn more"
+whatsNewEntryCtaClass1:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 whatsNewEntryIcon2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 whatsNewEntryHeading2: "CrowdStrike named Partner of the Year"
 whatsNewEntryBlurb2: "CrowdStrike has been selected by AWS as the winner for both AWS Security Technology Partner of the Year and AWS Marketplace Partner of the Year."
 whatsNewEntryCtaURL2: ""
 whatsNewEntryCtaText2: "Learn more"
+whatsNewEntryCtaClass2:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
-sCurveEntryImage0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+sCurveEntryImage0: "https://play.vidyard.com/VGGMVdBhWq1yEWwiRaFY77.jpg"
 sCurveEntryHeading0: "Secure your AI on AWS across agents, workloads, models, and data"
 sCurveEntryBlurb0: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
 sCurveEntryCtaURL0: ""
 sCurveEntryCtaText0: "Learn more"
+sCurveEntryCtaClass0:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 sCurveEntryImage1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 sCurveEntryHeading1: "Secure your AI on AWS across agents, workloads, models, and data"
 sCurveEntryBlurb1: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
 sCurveEntryCtaURL1: ""
 sCurveEntryCtaText1: "Learn more"
+sCurveEntryCtaClass1:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 sCurveEntryImage2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 sCurveEntryHeading2: "Secure your AI on AWS across agents, workloads, models, and data"
 sCurveEntryBlurb2: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
 sCurveEntryCtaURL2: ""
 sCurveEntryCtaText2: "Learn more"
+sCurveEntryCtaClass2:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 sCurveEntryImage3: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 sCurveEntryHeading3: "Secure your AI on AWS across agents, workloads, models, and data"
 sCurveEntryBlurb3: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
 sCurveEntryCtaURL3: ""
 sCurveEntryCtaText3: "Learn more"
+sCurveEntryCtaClass3:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 sCurveEntryImage4: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 sCurveEntryHeading4: "Secure your AI on AWS across agents, workloads, models, and data"
 sCurveEntryBlurb4: "Falcon Cloud Security unifies protection for AWS AI workloads—securing models, data, and pipelines in real time. Detect threats across containers and AI services and stop breaches before they impact your innovation."
 sCurveEntryCtaURL4: ""
 sCurveEntryCtaText4: "Learn more"
+sCurveEntryCtaClass4:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 featuresHeading: "CrowdStrike's AWS Achivements"
 featuresEntryIcon0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 featuresEntryHeading0: "AWS Competencies"
 featuresEntryBlurb0: |
   <ul><li>AWS Built-in Competency</li><li>Containers ISV Competency</li><li>Generative AI Software</li><li>MSSP Software Competency</li><li>Security ISV Competency</li><li>Small and Medium Business Software</li></ul>
-featuresEntryCtaURL0: ""
-featuresEntryCtaText0: "Learn more"
 featuresEntryIcon1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 featuresEntryHeading1: "AWS Programs"
 featuresEntryBlurb1:  |
   <ul><li>AWS Built-in Competency</li><li>Containers ISV Competency</li><li>Generative AI Software</li><li>MSSP Software Competency</li></ul>
-featuresEntryCtaURL1: ""
-featuresEntryCtaText1: "Learn more"
 featuresEntryIcon2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 featuresEntryHeading2: "AWS Services"
 featuresEntryBlurb2:  |
   <ul><li>AWS Built-in Competency</li><li>Containers ISV Competency</li></ul>
-featuresEntryCtaURL2: ""
-featuresEntryCtaText2: "Learn more"
 
+caseStudyImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 caseStudyHeading: "CrowdStrike and AWS Customers"
-caseStudyBlurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
 caseStudyQuoteHeading: "Geisinger expands CrowdStrike usage to Protect AWS cloud workloads"
 caseStudyQuote: "“CrowdStrike gave us the flexibility to quickly move from protecting our PCs to AWS pods at the click of a button, and with the same platform we know and trust.”"
 caseStudyAttribution: "Zack Gable, CISO, Geisinger"
 caseStudyLogo: "https://go.crowdstrike.com/rs/281-OBQ-266/images/icon-1-million.svg?version=1"
 caseStudyCtaURL: ""
 caseStudyCtaText: "Read more"
-caseStudyImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+caseStudyCtaClass:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 resourcesHeading: "Featured Resources"
 resourcesEntryImage0: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
@@ -97,16 +161,67 @@ resourcesEntryEyebrow0: "Guide"
 resourcesEntryTitle0: "Guide to Securing the AI Operating Environment with CrowdStrike Falcon® Cloud Security and AWS"
 resourcesEntryCtaURL0: ""
 resourcesEntryCtaText0: "Download"
+resourcesEntryCtaClass0:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 resourcesEntryImage1: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 resourcesEntryEyebrow1: "Data Sheet"
 resourcesEntryTitle1: "Accelerate AWS Cloud Migrations with the CrowdStrike Falcon® platform"
 resourcesEntryCtaURL1: ""
 resourcesEntryCtaText1: "Download"
+resourcesEntryCtaClass1:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 resourcesEntryImage2: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 resourcesEntryEyebrow2: "Press Release"
 resourcesEntryTitle2: "CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses"
 resourcesEntryCtaURL2: ""
 resourcesEntryCtaText2: "Download"
+resourcesEntryCtaClass2:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
+resourcesEntryImage3: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+resourcesEntryEyebrow3: "Press Release"
+resourcesEntryTitle3: "CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses"
+resourcesEntryCtaURL3: ""
+resourcesEntryCtaText3: "Download"
+resourcesEntryCtaClass3:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
+resourcesEntryImage4: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+resourcesEntryEyebrow4: "Press Release"
+resourcesEntryTitle4: "CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses"
+resourcesEntryCtaURL4: ""
+resourcesEntryCtaText4: "Download"
+resourcesEntryCtaClass4:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
+resourcesEntryImage5: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+resourcesEntryEyebrow5: "Press Release"
+resourcesEntryTitle5: "CrowdStrike and Amazon Business Prime Transform Cybersecurity for Small Businesses"
+resourcesEntryCtaURL5: ""
+resourcesEntryCtaText5: "Download"
+resourcesEntryCtaClass5:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 faqsHeading: "FAQs"
 faqsOverview: "Overview"
@@ -128,8 +243,14 @@ faqsOnboardingBlurb0: |
   </ul>
   <p>Subscribing to Falcon for AWS enables customers to use any combination of the listed pay-as-you-go products.</p>
 
+calloutImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 calloutHeading: "Build fast. Secure faster.<br />Start today."
 calloutBlurb: "Secure your business with the #1 ISV on the AWS marketplace."
 calloutCtaURL: ''
 calloutCtaText: "Buy with AWS"
-calloutImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+calloutCtaClass:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"

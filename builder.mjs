@@ -168,7 +168,32 @@ function applyVariables(html, contentMap, mode) {
 
 		// Dev mode: substitute preview values from YAML
 		if (Object.prototype.hasOwnProperty.call(contentMap, varName)) {
-			const rawVal = String(contentMap[varName]);
+			const val = contentMap[varName];
+			let rawVal;
+
+			// Nested config object (booleans, etc.)
+			if (val && typeof val === "object" && !Array.isArray(val)) {
+				if (modifier === "boolean") {
+					// Boolean config:
+					// headerCtaClass:
+					//   default: false
+					//   false_value: "arrow"
+					//   true_value: "box"
+					const isTrue = !!val.default;
+					if (isTrue) {
+						rawVal = val.true_value != null ? String(val.true_value) : "true";
+					} else {
+						rawVal = val.false_value != null ? String(val.false_value) : "false";
+					}
+				} else if ("default" in val) {
+					// Generic object with a default value
+					rawVal = String(val.default);
+				} else {
+					rawVal = String(val);
+				}
+			} else {
+				rawVal = String(val);
+			}
 
 			if (modifier === "attr") {
 				// Attribute-safe escaping for things like data-* and href="..."
@@ -176,7 +201,6 @@ function applyVariables(html, contentMap, mode) {
 			}
 
 			// Default and |html etc. just get the raw YAML value
-			// (assume author uses |html when they *want* HTML in the output)
 			return rawVal;
 		}
 
@@ -231,14 +255,29 @@ function generateMktoMetaTags(varsMeta, contentMap) {
 				break;
 		}
 
-		const rawDefault = contentMap[varName] != null
-			? String(contentMap[varName])
-			: "";
+		const rawCfg = contentMap[varName];
+		let rawDefault = "";
+		let cfgObject = null;
+
+		if (rawCfg != null && typeof rawCfg === "object" && !Array.isArray(rawCfg)) {
+			// Nested config object, e.g. for booleans
+			cfgObject = rawCfg;
+
+			if (Object.prototype.hasOwnProperty.call(rawCfg, "default")) {
+				rawDefault = String(rawCfg.default);
+			} else if (Object.prototype.hasOwnProperty.call(rawCfg, "value")) {
+				rawDefault = String(rawCfg.value);
+			} else {
+				rawDefault = "";
+			}
+		} else if (rawCfg != null) {
+			rawDefault = String(rawCfg);
+		}
 
 		// Escape for attribute context and normalize whitespace
 		let defaultAttr = escapeHtml(rawDefault)
-			.replace(/\r\n|\r|\n/g, " ")   // remove newlines
-			.replace(/\s\s+/g, " ")        // collapse runs of whitespace
+			.replace(/\r\n|\r|\n/g, " ")
+			.replace(/\s\s+/g, " ")
 			.trim();
 
 		const mktoName = mktoNameFromId(varName);
@@ -252,6 +291,27 @@ function generateMktoMetaTags(varsMeta, contentMap) {
 		// For string variables, enable HTML if any usage requested it
 		if (allowHTML && cls === "mktoString") {
 			attrs.push('allowHTML="true"');
+		}
+
+		// Boolean-specific config (false/true values and labels)
+		if (cls === "mktoBoolean" && cfgObject) {
+			const fv  = cfgObject.false_value;
+			const tv  = cfgObject.true_value;
+			const fvn = cfgObject.false_value_name;
+			const tvn = cfgObject.true_value_name;
+
+			if (fv != null) {
+				attrs.push(`false_value="${escapeHtml(String(fv))}"`);
+			}
+			if (tv != null) {
+				attrs.push(`true_value="${escapeHtml(String(tv))}"`);
+			}
+			if (fvn != null) {
+				attrs.push(`false_value_name="${escapeHtml(String(fvn))}"`);
+			}
+			if (tvn != null) {
+				attrs.push(`true_value_name="${escapeHtml(String(tvn))}"`);
+			}
 		}
 
 		if (defaultAttr !== "") {
