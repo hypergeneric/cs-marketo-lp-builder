@@ -212,32 +212,24 @@ resourcesEntryCtaClass4:
   false_value_name: "Internal"
   true_value_name: "External"
 
-faqsHeading: "FAQs"
-faqsOverview: "Overview"
-faqsOverviewHeading0: "What is CrowdStrike Falcon® for AWS Pay-As-You-Go?"
-faqsOverviewBlurb0: |
-  <p>CrowdStrike Falcon® for AWS Pay-As-You-Go helps organizations quickly protect their AWS environments while being billed monthly as part of your AWS invoice. CrowdStrike Falcon® for AWS has two product offerings:</p>
-  <ul>
-    <li>CrowdStrike Falcon® Cloud Security Runtime delivers agent-based workload protection for your cloud instances, container clusters, and managed containers to automatically detect, investigate, and respond to threats in real-time.</li>
-    <li>CrowdStrike Falcon® Next-Gen SIEM ingests and correlates multi-vendor security events, simplifies investigation and search, and provides 13 month data retention.</li>
-  </ul>
-  <p>Subscribing to Falcon for AWS enables customers to use any combination of the listed pay-as-you-go products.</p>
-faqsOnboarding: "Onboarding"
-faqsOnboardingHeading0: "What is CrowdStrike Falcon® for AWS Pay-As-You-Go?"
-faqsOnboardingBlurb0: |
-  <p>CrowdStrike Falcon® for AWS Pay-As-You-Go helps organizations quickly protect their AWS environments while being billed monthly as part of your AWS invoice. CrowdStrike Falcon® for AWS has two product offerings:</p>
-  <ul>
-    <li>CrowdStrike Falcon® Cloud Security Runtime delivers agent-based workload protection for your cloud instances, container clusters, and managed containers to automatically detect, investigate, and respond to threats in real-time.</li>
-    <li>CrowdStrike Falcon® Next-Gen SIEM ingests and correlates multi-vendor security events, simplifies investigation and search, and provides 13 month data retention.</li>
-  </ul>
-  <p>Subscribing to Falcon for AWS enables customers to use any combination of the listed pay-as-you-go products.</p>
-
 calloutImage: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 calloutHeading: "Build fast. Secure faster.<br />Start today."
 calloutBlurb: "Secure your business with the #1 ISV on the AWS marketplace."
 calloutCtaURL: ''
 calloutCtaText: "Buy with AWS"
 calloutCtaClass:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
+
+callout2Image: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
+callout2Heading: "Build fast. Secure faster.<br />Start today."
+callout2Blurb: "Secure your business with the #1 ISV on the AWS marketplace."
+callout2CtaURL: ''
+callout2CtaText: "Buy with AWS"
+callout2CtaClass:
   default: false
   false_value: "arrow"
   true_value: "arrow-external"
