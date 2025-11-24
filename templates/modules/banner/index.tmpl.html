@@ -1,11 +1,11 @@
-<section class="banner spacing-top-small spacing-bottom-none">
+<section class="banner spacing-top-small spacing-bottom-none ${bannerHidden|boolean}">
 	<div class="container">
 		<div class="card has-radius light">
 			<div class="heading">
 				<h2 class="crowdsans crowdsansbold w_700 s_24 lh_125">${bannerHeading|html}</h2>
 			</div>
 			<div class="cta-wrap">
-				<a href="${bannerCtaURL|attr}" class="cta outline ${bannerCtaClass|boolean}">${bannerCtaText}</a>
+				<a href="${bannerCtaURL|attr}" class="cta secondary ${bannerCtaClass|boolean}">${bannerCtaText}</a>
 			</div>
 		</div>
 	</div>

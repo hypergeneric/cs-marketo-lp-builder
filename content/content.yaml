@@ -25,6 +25,12 @@ heroCtaClass:
   false_value_name: "Internal"
   true_value_name: "External"
 
+bannerHidden:
+  default: false
+  false_value: "visible"
+  true_value: "hidden"
+  false_value_name: "Visible"
+  true_value_name: "Hidden"
 bannerHeading: "CrowdStrike named AWS 2025 global security partner & global marketplace partner of the year"
 bannerCtaURL: ""
 bannerCtaText: "Read press release"
