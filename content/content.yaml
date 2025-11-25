@@ -229,6 +229,14 @@ calloutCtaClass:
   true_value: "arrow-external"
   false_value_name: "Internal"
   true_value_name: "External"
+calloutCtaURL2: ''
+calloutCtaText2: "Buy with AWS"
+calloutCtaClass2:
+  default: false
+  false_value: "arrow"
+  true_value: "arrow-external"
+  false_value_name: "Internal"
+  true_value_name: "External"
 
 callout2Image: "https://go.crowdstrike.com/rs/281-OBQ-266/images/charlotte-AI-2.jpeg?version=1"
 callout2Heading: "Build fast. Secure faster.<br />Start today."
